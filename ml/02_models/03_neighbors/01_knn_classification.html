@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>KNN para Classificação</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>K-Nearest Neighbors (KNN) - Classificação</h2>
+
+<h3>1º - O Problema: Classificar um Novo Ponto</h3>
+
+<p>Considere o seguinte conjunto de dados:</p>
+
+<table>
+<thead>
+<tr>
+<th>Horas de Estudo</th>
+<th>Faltas</th>
+<th>Aprovado?</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>6</td><td>Não</td></tr>
+<tr><td>2</td><td>5</td><td>Não</td></tr>
+<tr><td>3</td><td>2</td><td>Sim</td></tr>
+<tr><td>4</td><td>1</td><td>Sim</td></tr>
+<tr><td>2</td><td>4</td><td>Não</td></tr>
+</tbody>
+</table>
+
+<p>Queremos prever a classe de um novo aluno com:</p>
+
+<ul>
+<li><strong>Horas de Estudo:</strong> 3</li>
+<li><strong>Faltas:</strong> 3</li>
+</ul>
+
+<h3>2º - Ideia do KNN</h3>
+
+<p>O KNN não aprende uma função explícita.<br>
+Ele classifica um ponto com base nos <strong>K vizinhos mais próximos</strong>.</p>
+
+<ul>
+<li>Escolhemos um valor de <strong>K</strong></li>
+<li>Calculamos a distância até todos os pontos</li>
+<li>Selecionamos os K mais próximos</li>
+<li>Fazemos uma votação (maioria)</li>
+</ul>
+
+<h3>3º - Medindo Distância</h3>
+
+<p>A distância mais comum é a <strong>Euclidiana</strong>:</p>
+
+<p class="equation">\(
+d(x, y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}
+\)</p>
+
+<h3>4º - Calculando as Distâncias</h3>
+
+<p>Para o ponto (3, 3):</p>
+
+<ul>
+<li>(1,6): \( \sqrt{(3-1)^2 + (3-6)^2} = \sqrt{4 + 9} = \sqrt{13} \)</li>
+<li>(2,5): \( \sqrt{1 + 4} = \sqrt{5} \)</li>
+<li>(3,2): \( \sqrt{0 + 1} = 1 \)</li>
+<li>(4,1): \( \sqrt{1 + 4} = \sqrt{5} \)</li>
+<li>(2,4): \( \sqrt{1 + 1} = \sqrt{2} \)</li>
+</ul>
+
+<h3>5º - Escolhendo K = 3</h3>
+
+<p>Os 3 vizinhos mais próximos são:</p>
+
+<ul>
+<li>(3,2) → Sim</li>
+<li>(2,4) → Não</li>
+<li>(2,5) ou (4,1) → empate na distância</li>
+</ul>
+
+<p>Considerando um dos empates, temos:</p>
+
+<ul>
+<li>Sim: 1</li>
+<li>Não: 2</li>
+</ul>
+
+<p><strong>Resultado: Não aprovado</strong></p>
+
+<h3>6º - Regra de Decisão</h3>
+
+<p>A previsão do modelo \(\hat{y}\) para um ponto \(x\) é definida pela <strong>votação majoritária</strong>. Matematicamente, selecionamos a classe \(c\) que maximiza a contagem entre os \(K\) vizinhos mais próximos:</p>
+
+<p class="equation">
+\(
+\hat{y} = \text{arg max}_{c \in \mathcal{C}} \sum_{i \in N_K(x)} I(y_i = c)
+\)
+</p>
+
+<p>Onde:</p>
+<ul>
+    <li>\(N_K(x)\): É o conjunto dos \(K\) vizinhos mais próximos de \(x\).</li>
+    <li>\(I(\cdot)\): É a <strong>função indicadora</strong> (vale 1 se a condição for verdadeira e 0 caso contrário).</li>
+    <li>\(\text{arg max}\): Retorna a classe que obteve o maior valor de soma (a mais frequente).</li>
+</ul>
+
+<p>No nosso exemplo com \(K=3\), tivemos duas ocorrências da classe "Não" e uma da classe "Sim", logo a "Moda" ou o "Arg Max" resultou em <strong>Não</strong>.</p>
+
+<h3>7º - Importância do K</h3>
+
+<ul>
+<li><strong>K pequeno:</strong> modelo sensível a ruído (overfitting)</li>
+<li><strong>K grande:</strong> modelo mais estável, mas pode errar padrões (underfitting)</li>
+</ul>
+
+<h3>8º - Impacto da Escala</h3>
+
+<p>Se as variáveis tiverem escalas diferentes, a distância fica distorcida.</p>
+
+<p>Exemplo:</p>
+
+<ul>
+<li>Horas: varia de 0 a 10</li>
+<li>Renda: varia de 0 a 10000</li>
+</ul>
+
+<p>Nesse caso, a renda domina a distância.<br>
+Por isso, usamos <strong>normalização</strong> ou <strong>padronização</strong>.</p>
+
+<h3>9º - Interpretação Geométrica</h3>
+
+<p>Imagine um gráfico onde o eixo horizontal são as <strong>Horas</strong> e o vertical as <strong>Faltas</strong>:</p>
+
+<pre>
+Faltas (Y)
+  ^
+6 |  • (1,6) [Não]
+  |
+5 |       • (2,5) [Não]
+  |
+4 |       • (2,4) [Não]
+  |
+3 |            X (3,3) <--- Novo Ponto
+  |
+2 |            • (3,2) [Sim]
+  |
+1 |                 • (4,1) [Sim]
+  |
++---------------------------> Horas (X)
+     1    2    3    4
+</pre>
+
+<p>Note que o ponto <strong>X(3,3)</strong> está cercado por três vizinhos muito próximos: 
+(3,2), (2,4) e (2,5). Como dois deles são "Não", o ponto X é classificado como "Não".</p>
+
+<h3>10º - Limitações</h3>
+
+<ul>
+<li>Custo alto para grandes bases (calcula distância para todos)</li>
+<li>Sensível à escala dos dados</li>
+<li>Sensível a outliers</li>
+</ul>
+
+<h3>11º - Conclusão</h3>
+
+<p>O KNN é um modelo simples e intuitivo, baseado em proximidade.<br>
+Ele não aprende parâmetros, apenas usa os dados diretamente.<br>
+Apesar da simplicidade, pode ser poderoso em problemas bem estruturados.</p>
+
+</main>
+
+</body>
+</html>
+
