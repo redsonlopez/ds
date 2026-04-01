@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>MLP - Multi-Layer Perceptron</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Multi-Layer Perceptron (MLP)</h2>
+
+<h3>1º - Limitação do Perceptron</h3>
+
+<p>O <strong>Perceptron</strong> consegue aprender apenas relações <strong>lineares</strong>.</p>
+
+<p>Isso significa que ele só separa dados com uma reta (ou hiperplano).</p>
+
+<p>Problemas como o XOR não podem ser resolvidos com uma única camada linear.</p>
+
+---
+
+<h3>2º - Ideia do MLP</h3>
+
+<p>O MLP resolve esse problema adicionando <strong>camadas intermediárias</strong>.</p>
+
+<ul>
+<li>Camada de entrada</li>
+<li>Uma ou mais <strong>camadas ocultas</strong></li>
+<li>Camada de saída</li>
+</ul>
+
+<p>Cada camada aplica uma transformação linear seguida de uma função não linear.</p>
+
+---
+
+<h3>3º - Estrutura de uma Rede</h3>
+
+<p>Cada neurônio realiza duas etapas:</p>
+
+<ul>
+<li><strong>Combinação linear:</strong> \( z = w^T x + b \)</li>
+<li><strong>Ativação:</strong> \( a = \phi(z) \)</li>
+</ul>
+
+<p>Onde:</p>
+<ul>
+<li>\(w\): pesos</li>
+<li>\(b\): bias</li>
+<li>\(\phi\): função de ativação</li>
+</ul>
+
+---
+
+<h3>4º - Propagação para Frente (Forward Pass)</h3>
+
+<p>Em uma rede com uma camada oculta:</p>
+
+<p class="equation">
+\(
+z^{(1)} = W^{(1)} x + b^{(1)}
+\)
+</p>
+
+<p class="equation">
+\(
+a^{(1)} = \phi(z^{(1)})
+\)
+</p>
+
+<p class="equation">
+\(
+z^{(2)} = W^{(2)} a^{(1)} + b^{(2)}
+\)
+</p>
+
+<p class="equation">
+\(
+\hat{y} = \phi(z^{(2)})
+\)
+</p>
+
+---
+
+<h3>5º - Por que Funciona?</h3>
+
+<p>A composição de várias funções não lineares permite modelar relações complexas.</p>
+
+<p>Uma MLP pode aproximar qualquer função contínua (teorema da aproximação universal).</p>
+
+---
+
+<h3>6º - Exemplo Intuitivo</h3>
+
+<p>Imagine que queremos classificar pontos em regiões não lineares.</p>
+
+<p>A primeira camada pode aprender separações simples (retas).</p>
+
+<p>A segunda camada combina essas separações para formar regiões mais complexas.</p>
+
+---
+
+<h3>7º - Funções de Ativação Comuns</h3>
+
+<ul>
+<li><strong>ReLU:</strong> \( \max(0, z) \)</li>
+<li><strong>Sigmoid:</strong> \( \frac{1}{1 + e^{-z}} \)</li>
+<li><strong>Tanh:</strong> \( \tanh(z) \)</li>
+</ul>
+
+<p>Sem ativação, a rede vira apenas uma transformação linear (inútil em múltiplas camadas).</p>
+
+---
+
+<h3>8º - Treinamento</h3>
+
+<p>O treinamento consiste em ajustar os pesos para minimizar uma função de erro.</p>
+
+<p>Isso é feito com:</p>
+
+<ul>
+<li>Forward pass</li>
+<li>Cálculo da perda</li>
+<li><strong>Backpropagation</strong></li>
+<li><strong>Gradient Descent</strong></li>
+</ul>
+
+---
+
+<h3>9º - Interpretação Geométrica</h3>
+
+<p>Cada camada transforma o espaço dos dados.</p>
+
+<p>Após várias transformações, os dados podem se tornar linearmente separáveis.</p>
+
+---
+
+<h3>10º - Hiperparâmetros</h3>
+
+<ul>
+<li>Número de camadas</li>
+<li>Número de neurônios por camada</li>
+<li>Função de ativação</li>
+<li>Taxa de aprendizado</li>
+</ul>
+
+---
+
+<h3>11º - Limitações</h3>
+
+<ul>
+<li>Treinamento pode ser lento</li>
+<li>Sensível à escolha de hiperparâmetros</li>
+<li>Pode sofrer overfitting</li>
+<li>Menos interpretável</li>
+</ul>
+
+---
+
+<h3>12º - Conclusão</h3>
+
+<p>O MLP é uma generalização do perceptron que permite modelar relações não lineares.</p>
+
+<p>Ele é a base das redes neurais modernas e permite resolver problemas complexos.</p>
+
+</main>
+
+</body>
+</html>
+

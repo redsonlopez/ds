@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../../../assets/css/style.css">
+
+<title>Regressão Regularizada</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Regressão Regularizada (Regularized Regression)</h2>
+
+<h3>1º - O Problema</h3>
+
+<p>Modelos de regressão podem sofrer com dois problemas principais:</p>
+
+<ul>
+<li><strong>Overfitting</strong>: o modelo se ajusta demais aos dados</li>
+<li><strong>Coeficientes instáveis</strong>: valores muito grandes ou sensíveis a pequenas variações</li>
+</ul>
+
+<p>Isso é comum quando:</p>
+
+<ul>
+<li>há muitas variáveis</li>
+<li>as variáveis são correlacionadas</li>
+</ul>
+
+---
+
+<h3>2º - Ideia da Regularização</h3>
+
+<p>A regressão regularizada adiciona uma penalização à função de erro.</p>
+
+<p>Em vez de minimizar apenas o erro:</p>
+
+<p class="equation">\(
+\frac{1}{n} \sum (y_i - \hat{y}_i)^2
+\)</p>
+
+<p>Passamos a minimizar:</p>
+
+<p class="equation">\(
+\frac{1}{n} \sum (y_i - \hat{y}_i)^2 + \lambda \cdot \Omega(\theta)
+\)</p>
+
+<ul>
+<li>\(\lambda\): controla a penalização</li>
+<li>\(\Omega(\theta)\): penaliza os coeficientes</li>
+</ul>
+
+---
+
+<h3>3º - Ridge Regression (L2)</h3>
+
+<p>Penaliza o quadrado dos coeficientes:</p>
+
+<p class="equation">\(
+\Omega(\theta) = \sum \theta_i^2
+\)</p>
+
+<p>Função objetivo:</p>
+
+<p class="equation">\(
+\frac{1}{n} \sum (y_i - \hat{y}_i)^2 + \lambda \sum \theta_i^2
+\)</p>
+
+<ul>
+<li>Reduz coeficientes grandes</li>
+<li>Não zera coeficientes</li>
+<li>Funciona bem com variáveis correlacionadas</li>
+</ul>
+
+---
+
+<h3>4º - Lasso Regression (L1)</h3>
+
+<p>Penaliza o valor absoluto dos coeficientes:</p>
+
+<p class="equation">\(
+\Omega(\theta) = \sum |\theta_i|
+\)</p>
+
+<p>Função objetivo:</p>
+
+<p class="equation">\(
+\frac{1}{n} \sum (y_i - \hat{y}_i)^2 + \lambda \sum |\theta_i|
+\)</p>
+
+<ul>
+<li>Pode zerar coeficientes</li>
+<li>Realiza seleção automática de variáveis</li>
+</ul>
+
+---
+
+<h3>5º - Elastic Net</h3>
+
+<p>Combina L1 e L2:</p>
+
+<p class="equation">\(
+\frac{1}{n} \sum (y_i - \hat{y}_i)^2 + \lambda \left( \alpha \sum |\theta_i| + (1 - \alpha)\sum \theta_i^2 \right)
+\)</p>
+
+<ul>
+<li>\(\alpha\): controla o equilíbrio entre L1 e L2</li>
+<li>Combina seleção de variáveis e estabilidade</li>
+</ul>
+
+---
+
+<h3>6º - Interpretação Geométrica</h3>
+
+<ul>
+<li>L2 (Ridge) → restringe os coeficientes suavemente</li>
+<li>L1 (Lasso) → favorece soluções esparsas</li>
+</ul>
+
+<p>Isso acontece devido ao formato da região de restrição:</p>
+
+<ul>
+<li>L2 → formato circular</li>
+<li>L1 → formato com cantos (tende a zerar coeficientes)</li>
+</ul>
+
+---
+
+<h3>7º - Papel do \(\lambda\)</h3>
+
+<ul>
+<li>\(\lambda = 0\): regressão comum</li>
+<li>\(\lambda\) pequeno: leve regularização</li>
+<li>\(\lambda\) grande: modelo mais simples</li>
+</ul>
+
+<p>Valores altos podem causar <strong>underfitting</strong>.</p>
+
+---
+
+<h3>8º - Quando usar cada método</h3>
+
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ridge</td>
+<td>Variáveis correlacionadas</td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td>Seleção de variáveis</td>
+</tr>
+<tr>
+<td>Elastic Net</td>
+<td>Combinação dos dois cenários</td>
+</tr>
+</tbody>
+</table>
+
+---
+
+<h3>9º - Relação com Overfitting</h3>
+
+<p>A regularização reduz a complexidade do modelo.</p>
+
+<ul>
+<li>Diminui variância</li>
+<li>Aumenta capacidade de generalização</li>
+</ul>
+
+<p>Porém, pode aumentar o viés.</p>
+
+---
+
+<h3>10º - Conclusão</h3>
+
+<p>A regressão regularizada é uma extensão da regressão linear<br>
+que melhora a estabilidade e evita overfitting.</p>
+
+<p>Ela é essencial em cenários com muitas variáveis<br>
+ou quando há risco de ajuste excessivo.</p>
+
+</main>
+
+</body>
+</html>
+

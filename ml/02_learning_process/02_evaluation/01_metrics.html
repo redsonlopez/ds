@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../../../assets/css/style.css">
+
+<title>Métricas de Avaliação</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Métricas de Avaliação (Evaluation Metrics)</h2>
+
+<h3>1º - O Problema: Como avaliar um modelo?</h3>
+
+<p>Após treinar um modelo, precisamos medir seu desempenho.</p>
+
+<p><strong>Quão bom é o modelo?</strong></p>
+
+<p>Para isso, utilizamos <strong>métricas de avaliação</strong>.</p>
+
+---
+
+<h3>2º - Métricas vs Função de Perda</h3>
+
+<ul>
+<li><strong>Função de perda:</strong> usada durante o treinamento</li>
+<li><strong>Métrica:</strong> usada para avaliar o modelo</li>
+</ul>
+
+<p>Nem sempre são iguais.</p>
+
+---
+
+<h3>3º - Métricas para Regressão</h3>
+
+<h4>Mean Squared Error (MSE)</h4>
+
+<p class="equation">\(
+MSE = \frac{1}{n} \sum (y_i - \hat{y}_i)^2
+\)</p>
+
+<ul>
+<li>Penaliza erros grandes</li>
+<li>Sensível a outliers</li>
+</ul>
+
+<h4>Root Mean Squared Error (RMSE)</h4>
+
+<p class="equation">\(
+RMSE = \sqrt{MSE}
+\)</p>
+
+<ul>
+<li>Mesma unidade do alvo</li>
+<li>Mais interpretável</li>
+</ul>
+
+<h4>Mean Absolute Error (MAE)</h4>
+
+<p class="equation">\(
+MAE = \frac{1}{n} \sum |y_i - \hat{y}_i|
+\)</p>
+
+<ul>
+<li>Mais robusta a outliers</li>
+</ul>
+
+---
+
+<h3>4º - Métricas para Classificação</h3>
+
+<h4>Acurácia (Accuracy)</h4>
+
+<p class="equation">\(
+Accuracy = \frac{\text{acertos}}{\text{total}}
+\)</p>
+
+<ul>
+<li>Simples e intuitiva</li>
+<li>Pode ser enganosa em dados desbalanceados</li>
+</ul>
+
+---
+
+<h3>5º - Matriz de Confusão</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Previsto Positivo</th>
+<th>Previsto Negativo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Real Positivo</strong></td>
+<td>TP</td>
+<td>FN</td>
+</tr>
+<tr>
+<td><strong>Real Negativo</strong></td>
+<td>FP</td>
+<td>TN</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>TP: verdadeiro positivo</li>
+<li>FP: falso positivo</li>
+<li>FN: falso negativo</li>
+<li>TN: verdadeiro negativo</li>
+</ul>
+
+---
+
+<h3>6º - Precision</h3>
+
+<p class="equation">\(
+Precision = \frac{TP}{TP + FP}
+\)</p>
+
+<ul>
+<li>Entre os positivos previstos, quantos estão corretos?</li>
+</ul>
+
+---
+
+<h3>7º - Recall</h3>
+
+<p class="equation">\(
+Recall = \frac{TP}{TP + FN}
+\)</p>
+
+<ul>
+<li>Entre os positivos reais, quantos foram encontrados?</li>
+</ul>
+
+---
+
+<h3>8º - F1-Score</h3>
+
+<p class="equation">\(
+F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+\)</p>
+
+<ul>
+<li>Equilíbrio entre precision e recall</li>
+</ul>
+
+---
+
+<h3>9º - AUC-ROC</h3>
+
+<p><strong>AUC (Area Under the Curve)</strong> mede a capacidade do modelo de separar classes.</p>
+
+<ul>
+<li>Varia de 0 a 1</li>
+<li>Quanto maior, melhor</li>
+</ul>
+
+<p><strong>ROC:</strong> curva que relaciona:</p>
+
+<ul>
+<li>True Positive Rate (Recall)</li>
+<li>False Positive Rate</li>
+</ul>
+
+---
+
+<h3>10º - Escolha da métrica</h3>
+
+<ul>
+<li>Dados balanceados → Accuracy pode ser suficiente</li>
+<li>Dados desbalanceados → Precision, Recall, F1</li>
+<li>Problemas probabilísticos → AUC</li>
+</ul>
+
+<p>A métrica correta depende do problema.</p>
+
+---
+
+<h3>11º - Conclusão</h3>
+
+<p>Métricas de avaliação permitem medir o desempenho real do modelo.</p>
+
+<ul>
+<li>Não existe métrica universal</li>
+<li>A escolha depende do contexto</li>
+<li>Interpretar corretamente é essencial</li>
+</ul>
+
+</main>
+
+</body>
+</html>
+

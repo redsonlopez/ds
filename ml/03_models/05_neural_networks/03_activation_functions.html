@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>Funções de Ativação</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Funções de Ativação em Redes Neurais</h2>
+
+<h3>1º - O Problema: Linearidade</h3>
+
+<p>Considere um neurônio simples:</p>
+
+<p class="equation">
+\(
+z = w_1 x_1 + w_2 x_2 + b
+\)
+</p>
+
+<p>Se não aplicarmos nenhuma transformação, a saída será apenas uma combinação linear das entradas.</p>
+
+<p>Mesmo empilhando vários neurônios, o resultado ainda seria uma função linear.</p>
+
+<p><strong>Conclusão:</strong> sem funções de ativação, redes neurais não conseguem aprender padrões complexos.</p>
+
+---
+
+<h3>2º - O Papel da Função de Ativação</h3>
+
+<p>A função de ativação aplica uma transformação não linear:</p>
+
+<p class="equation">
+\(
+a = g(z)
+\)
+</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(z\): combinação linear</li>
+<li>\(g(\cdot)\): função de ativação</li>
+<li>\(a\): saída do neurônio</li>
+</ul>
+
+<p>Isso permite que a rede aprenda relações não lineares.</p>
+
+---
+
+<h3>3º - Função Degrau (Step Function)</h3>
+
+<p>Uma das primeiras funções utilizadas:</p>
+
+<p class="equation">
+\(
+g(z) =
+\begin{cases}
+1, & z \geq 0 \\
+0, & z < 0
+\end{cases}
+\)
+</p>
+
+<p><strong>Problema:</strong> não é diferenciável, o que impede o uso de gradiente descendente.</p>
+
+---
+
+<h3>4º - Função Sigmoid</h3>
+
+<p class="equation">
+\(
+g(z) = \frac{1}{1 + e^{-z}}
+\)
+</p>
+
+<ul>
+<li>Saída entre 0 e 1</li>
+<li>Interpretável como probabilidade</li>
+</ul>
+
+<p><strong>Problemas:</strong></p>
+<ul>
+<li>Gradiente pequeno para valores extremos (vanishing gradient)</li>
+<li>Não centrada em zero</li>
+</ul>
+
+---
+
+<h3>5º - Função Tanh</h3>
+
+<p class="equation">
+\(
+g(z) = \tanh(z)
+\)
+</p>
+
+<ul>
+<li>Saída entre -1 e 1</li>
+<li>Centrada em zero</li>
+</ul>
+
+<p><strong>Problema:</strong> ainda sofre com vanishing gradient.</p>
+
+---
+
+<h3>6º - ReLU (Rectified Linear Unit)</h3>
+
+<p class="equation">
+\(
+g(z) = \max(0, z)
+\)
+</p>
+
+<ul>
+<li>Simples e eficiente</li>
+<li>Evita saturação para valores positivos</li>
+</ul>
+
+<p><strong>Problema:</strong></p>
+<ul>
+<li>Neurônios podem “morrer” (sempre retornam 0)</li>
+</ul>
+
+---
+
+<h3>7º - Leaky ReLU</h3>
+
+<p class="equation">
+\(
+g(z) =
+\begin{cases}
+z, & z > 0 \\
+\alpha z, & z \leq 0
+\end{cases}
+\)
+</p>
+
+<p>Onde \(\alpha\) é um valor pequeno (ex: 0.01).</p>
+
+<p><strong>Vantagem:</strong> reduz o problema de neurônios mortos.</p>
+
+---
+
+<h3>8º - Softmax</h3>
+
+<p>Usada em classificação multiclasse:</p>
+
+<p class="equation">
+\(
+g(z_i) = \frac{e^{z_i}}{\sum_{j} e^{z_j}}
+\)
+</p>
+
+<ul>
+<li>Transforma valores em probabilidades</li>
+<li>Soma das saídas = 1</li>
+</ul>
+
+---
+
+<h3>9º - Comparação Intuitiva</h3>
+
+<ul>
+<li><strong>Sigmoid:</strong> saída probabilística, mas lenta para treinar</li>
+<li><strong>Tanh:</strong> melhor que sigmoid, mas ainda limitada</li>
+<li><strong>ReLU:</strong> padrão atual para camadas ocultas</li>
+<li><strong>Softmax:</strong> saída para classificação multiclasse</li>
+</ul>
+
+---
+
+<h3>10º - Por que Não Usar Funções Lineares?</h3>
+
+<p>Se usarmos:</p>
+
+<p class="equation">
+\(
+g(z) = z
+\)
+</p>
+
+<p>Então toda a rede se reduz a uma única transformação linear.</p>
+
+<p>Isso elimina qualquer ganho de profundidade.</p>
+
+---
+
+<h3>11º - Conclusão</h3>
+
+<p>Funções de ativação introduzem não linearidade nas redes neurais.</p>
+
+<p>Sem elas, redes profundas não seriam mais poderosas que modelos lineares.</p>
+
+<p>Na prática:</p>
+
+<ul>
+<li>Use <strong>ReLU</strong> na maioria dos casos</li>
+<li>Use <strong>Softmax</strong> na saída para classificação multiclasse</li>
+<li>Use <strong>Sigmoid</strong> para classificação binária</li>
+</ul>
+
+</main>
+
+</body>
+</html>
+

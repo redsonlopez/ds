@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>Gradient Boosting</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Gradient Boosting</h2>
+
+<h3>1º - O Problema: Erros dos Modelos Simples</h3>
+
+<p>Modelos simples, como árvores rasas, podem cometer erros sistemáticos.</p>
+
+<p>Ao contrário do Random Forest, que reduz variância, aqui o foco é:</p>
+
+<ul>
+<li><strong>Reduzir o erro (bias)</strong> de forma iterativa</li>
+</ul>
+
+---
+
+<h3>2º - Ideia do Boosting</h3>
+
+<p>O Boosting constrói modelos de forma sequencial.</p>
+
+<ul>
+<li>Cada novo modelo tenta corrigir os erros do anterior</li>
+</ul>
+
+<p>Em vez de árvores independentes, temos uma <strong>sequência de árvores</strong>.</p>
+
+---
+
+<h3>3º - Intuição</h3>
+
+<p>Imagine que o modelo inicial comete erros.</p>
+
+<p>O próximo modelo foca nesses erros, tentando corrigi-los.</p>
+
+<p>Repetimos esse processo várias vezes.</p>
+
+---
+
+<h3>4º - Modelo Aditivo</h3>
+
+<p>O modelo final é a soma de vários modelos simples:</p>
+
+<p class="equation">
+\(
+F(x) = \sum_{m=1}^{M} \gamma_m h_m(x)
+\)
+</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(h_m(x)\): modelo (geralmente uma árvore rasa)</li>
+<li>\(\gamma_m\): peso do modelo</li>
+<li>\(M\): número de etapas</li>
+</ul>
+
+---
+
+<h3>5º - Ideia Central: Ajustar Resíduos</h3>
+
+<p>No caso de regressão com erro quadrático:</p>
+
+<ul>
+<li>Começamos com uma previsão inicial</li>
+<li>Calculamos os <strong>resíduos</strong> (erros)</li>
+<li>Treinamos um novo modelo para prever esses resíduos</li>
+</ul>
+
+<p class="equation">
+\(
+r_i = y_i - F(x_i)
+\)
+</p>
+
+<p>O novo modelo aprende a aproximar \(r_i\).</p>
+
+---
+
+<h3>6º - Gradiente Descendente</h3>
+
+<p>O nome "Gradient Boosting" vem da ideia de otimização.</p>
+
+<p>Em vez de ajustar diretamente o modelo, seguimos o <strong>gradiente do erro</strong>.</p>
+
+<p class="equation">
+\(
+r_i = - \frac{\partial L(y_i, F(x_i))}{\partial F(x_i)}
+\)
+</p>
+
+<p>Ou seja, cada novo modelo aponta na direção de maior redução da perda.</p>
+
+---
+
+<h3>7º - Algoritmo (Resumo)</h3>
+
+<ul>
+<li>Inicializar o modelo com um valor constante</li>
+<li>Para cada iteração:</li>
+<ul>
+<li>Calcular os resíduos</li>
+<li>Treinar uma árvore para prever os resíduos</li>
+<li>Atualizar o modelo</li>
+</ul>
+</ul>
+
+<p class="equation">
+\(
+F_m(x) = F_{m-1}(x) + \eta \cdot h_m(x)
+\)
+</p>
+
+<p>Onde \(\eta\) é a <strong>learning rate</strong>.</p>
+
+---
+
+<h3>8º - Learning Rate</h3>
+
+<ul>
+<li><strong>Pequeno:</strong> aprendizado mais lento, melhor generalização</li>
+<li><strong>Grande:</strong> aprendizado rápido, risco de overfitting</li>
+</ul>
+
+<p>Existe um trade-off entre número de árvores e learning rate.</p>
+
+---
+
+<h3>9º - Diferença para Random Forest</h3>
+
+<ul>
+<li><strong>Random Forest:</strong> árvores independentes (paralelo)</li>
+<li><strong>Gradient Boosting:</strong> árvores sequenciais (dependentes)</li>
+</ul>
+
+<p>Random Forest reduz variância.<br>
+Gradient Boosting reduz bias.</p>
+
+---
+
+<h3>10º - Vantagens</h3>
+
+<ul>
+<li>Alta performance</li>
+<li>Captura relações complexas</li>
+<li>Flexível (diferentes funções de perda)</li>
+</ul>
+
+---
+
+<h3>11º - Limitações</h3>
+
+<ul>
+<li>Mais sensível a overfitting</li>
+<li>Treinamento mais lento</li>
+<li>Requer ajuste de hiperparâmetros</li>
+</ul>
+
+---
+
+<h3>12º - Conclusão</h3>
+
+<p>O Gradient Boosting constrói modelos de forma sequencial, corrigindo erros a cada etapa.</p>
+
+<p>É uma das técnicas mais poderosas de machine learning, especialmente em dados tabulares.</p>
+
+<p>Seu desempenho vem da combinação de muitos modelos simples ajustados de forma inteligente.</p>
+
+</main>
+
+</body>
+</html>
+

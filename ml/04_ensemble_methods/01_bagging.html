@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>Bagging (Bootstrap Aggregating)</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Bagging (Bootstrap Aggregating)</h2>
+
+<h3>1º - O Problema: Modelos Instáveis</h3>
+
+<p>Alguns modelos, como árvores de decisão, são altamente sensíveis aos dados de treino.</p>
+
+<p>Pequenas mudanças no conjunto de dados podem gerar modelos muito diferentes.</p>
+
+<p>Isso resulta em <strong>alta variância</strong>, ou seja, o modelo não generaliza bem para novos dados.</p>
+
+---
+
+<h3>2º - Ideia do Bagging</h3>
+
+<p>O Bagging tenta reduzir a variância combinando vários modelos.</p>
+
+<p>Em vez de treinar um único modelo, treinamos <strong>vários modelos independentes</strong> e combinamos suas previsões.</p>
+
+<ul>
+<li>Criamos várias amostras do dataset</li>
+<li>Treinamos um modelo em cada amostra</li>
+<li>Agregamos as previsões</li>
+</ul>
+
+---
+
+<h3>3º - Bootstrap Sampling</h3>
+
+<p>O segredo do Bagging está no <strong>bootstrap</strong>.</p>
+
+<p>Isso significa gerar novas amostras a partir do dataset original com <strong>reposição</strong>.</p>
+
+<p>Exemplo:</p>
+
+<p>Dataset original:</p>
+
+<pre>
+[1, 2, 3, 4, 5]
+</pre>
+
+<p>Amostras bootstrap:</p>
+
+<pre>
+[1, 2, 2, 4, 5]
+[3, 3, 4, 5, 5]
+[1, 1, 2, 3, 5]
+</pre>
+
+<p>Cada amostra tem o mesmo tamanho do dataset original, mas com repetições.</p>
+
+---
+
+<h3>4º - Treinando Múltiplos Modelos</h3>
+
+<p>Para cada amostra bootstrap:</p>
+
+<ul>
+<li>Treinamos um modelo (ex: árvore de decisão)</li>
+</ul>
+
+<p>Se tivermos \(B\) amostras, teremos \(B\) modelos:</p>
+
+<p class="equation">\(
+f_1(x), f_2(x), \dots, f_B(x)
+\)</p>
+
+---
+
+<h3>5º - Agregando as Previsões</h3>
+
+<p>Para regressão, usamos a média:</p>
+
+<p class="equation">\(
+\hat{y} = \frac{1}{B} \sum_{b=1}^{B} f_b(x)
+\)</p>
+
+<p>Para classificação, usamos votação majoritária:</p>
+
+<p class="equation">\(
+\hat{y} = \text{arg max}_{c} \sum_{b=1}^{B} I(f_b(x) = c)
+\)</p>
+
+---
+
+<h3>6º - Intuição</h3>
+
+<p>Cada modelo individual pode errar de forma diferente.</p>
+
+<p>Ao combinar vários modelos:</p>
+
+<ul>
+<li>Os erros tendem a se cancelar</li>
+<li>A previsão fica mais estável</li>
+</ul>
+
+<p>Isso reduz a variância do modelo.</p>
+
+---
+
+<h3>7º - Interpretação Geométrica</h3>
+
+<p>Imagine várias árvores de decisão gerando fronteiras diferentes:</p>
+
+<pre>
+Modelo 1: |---|
+Modelo 2:  |----|
+Modelo 3:   |---|
+Modelo 4: |------|
+</pre>
+
+<p>Ao combinar todos, obtemos uma fronteira mais suave e robusta.</p>
+
+---
+
+<h3>8º - Quando Funciona Bem</h3>
+
+<ul>
+<li>Modelos com alta variância (ex: árvores)</li>
+<li>Datasets pequenos ou com ruído</li>
+</ul>
+
+---
+
+<h3>9º - Limitações</h3>
+
+<ul>
+<li>Não reduz viés (bias)</li>
+<li>Aumenta custo computacional</li>
+<li>Modelos deixam de ser interpretáveis individualmente</li>
+</ul>
+
+---
+
+<h3>10º - Relação com Random Forest</h3>
+
+<p>O Random Forest é uma extensão do Bagging aplicada a árvores de decisão.</p>
+
+<p>Além do bootstrap, ele também:</p>
+
+<ul>
+<li>Seleciona subconjuntos aleatórios de features</li>
+</ul>
+
+<p>Isso aumenta ainda mais a diversidade entre os modelos.</p>
+
+---
+
+<h3>11º - Conclusão</h3>
+
+<p>O Bagging é uma técnica simples e poderosa para reduzir variância.</p>
+
+<p>Ele combina múltiplos modelos treinados em amostras diferentes do dataset.</p>
+
+<p>É a base de métodos mais avançados como o Random Forest.</p>
+
+</main>
+
+</body>
+</html>
+

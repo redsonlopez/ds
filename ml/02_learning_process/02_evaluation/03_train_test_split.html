@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../../assets/css/style.css">
+
+<title>Train/Test Split</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Train/Test Split</h2>
+
+<h3>1º - O Problema: Avaliar no mesmo dado é errado</h3>
+
+<p>Se treinarmos e avaliarmos um modelo usando os mesmos dados, teremos uma métrica irrealista.</p>
+
+<p><strong>O modelo pode simplesmente "decorar" os dados.</strong></p>
+
+<p>Isso leva a uma avaliação otimista e enganosa.</p>
+
+---
+
+<h3>2º - Ideia do Train/Test Split</h3>
+
+<p>Dividimos os dados em duas partes:</p>
+
+<ul>
+<li><strong>Treino (train)</strong>: usado para ajustar o modelo</li>
+<li><strong>Teste (test)</strong>: usado para avaliar o modelo</li>
+</ul>
+
+<p>O modelo nunca vê os dados de teste durante o treinamento.</p>
+
+---
+
+<h3>3º - Representação</h3>
+
+<p>Se temos um conjunto de dados \(D\), fazemos:</p>
+
+<p class="equation">\(
+D = D_{train} \cup D_{test}
+\)</p>
+
+<p class="equation">\(
+D_{train} \cap D_{test} = \emptyset
+\)</p>
+
+<p>Ou seja, os conjuntos são separados e não se sobrepõem.</p>
+
+---
+
+<h3>4º - Proporção comum</h3>
+
+<p>Uma divisão típica é:</p>
+
+<ul>
+<li>70% → treino</li>
+<li>30% → teste</li>
+</ul>
+
+<p>Outras variações comuns:</p>
+
+<ul>
+<li>80/20</li>
+<li>75/25</li>
+</ul>
+
+<p>Não existe uma única divisão correta.</p>
+
+---
+
+<h3>5º - Exemplo simples</h3>
+
+<p>Suponha 10 amostras:</p>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Treino</td></tr>
+<tr><td>2</td><td>Treino</td></tr>
+<tr><td>3</td><td>Treino</td></tr>
+<tr><td>4</td><td>Treino</td></tr>
+<tr><td>5</td><td>Treino</td></tr>
+<tr><td>6</td><td>Treino</td></tr>
+<tr><td>7</td><td>Teste</td></tr>
+<tr><td>8</td><td>Teste</td></tr>
+<tr><td>9</td><td>Teste</td></tr>
+<tr><td>10</td><td>Teste</td></tr>
+</tbody>
+</table>
+
+---
+
+<h3>6º - Importância da aleatoriedade</h3>
+
+<p>A divisão deve ser feita de forma aleatória.</p>
+
+<p>Sem isso, podemos introduzir viés no modelo.</p>
+
+<p>Exemplo de problema:</p>
+
+<ul>
+<li>dados ordenados por tempo</li>
+<li>treino com dados antigos</li>
+<li>teste com dados recentes</li>
+</ul>
+
+<p>Isso pode distorcer a avaliação.</p>
+
+---
+
+<h3>7º - Estratificação (classificação)</h3>
+
+<p>Em problemas de classificação, é importante manter a proporção das classes.</p>
+
+<p>Isso é chamado de <strong>estratificação</strong>.</p>
+
+<p>Exemplo:</p>
+
+<ul>
+<li>90% classe A</li>
+<li>10% classe B</li>
+</ul>
+
+<p>Ambos os conjuntos devem preservar essa proporção.</p>
+
+---
+
+<h3>8º - Limitações</h3>
+
+<ul>
+<li>Resultados podem variar dependendo da divisão</li>
+<li>Pode não representar bem o comportamento geral</li>
+</ul>
+
+<p>Por isso, técnicas como validação cruzada são frequentemente usadas.</p>
+
+---
+
+<h3>9º - Quando usar</h3>
+
+<ul>
+<li>Primeira avaliação de modelos</li>
+<li>Datasets grandes</li>
+<li>Análises rápidas</li>
+</ul>
+
+---
+
+<h3>10º - Conclusão</h3>
+
+<p>O train/test split é uma abordagem simples e essencial para avaliar modelos.</p>
+
+<ul>
+<li>Evita avaliações enviesadas</li>
+<li>Simula dados não vistos</li>
+<li>É base para métodos mais avançados</li>
+</ul>
+
+<p>Sem essa separação, não é possível confiar nos resultados do modelo.</p>
+
+</main>
+
+</body>
+</html>
+

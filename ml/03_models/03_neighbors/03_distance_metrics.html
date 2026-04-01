@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>Métricas de Distância</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Métricas de Distância</h2>
+
+<h3>1º - Por que Distância é Importante?</h3>
+
+<p>Em muitos modelos de machine learning, como o KNN, a ideia central é medir o quão "próximos" dois pontos estão.</p>
+
+<p>A escolha da métrica de distância influencia diretamente:</p>
+
+<ul>
+<li>Quais pontos são considerados vizinhos</li>
+<li>O formato das regiões de decisão</li>
+<li>O desempenho do modelo</li>
+</ul>
+
+---
+
+<h3>2º - Distância Euclidiana</h3>
+
+<p>É a métrica mais comum e corresponde à distância em linha reta entre dois pontos.</p>
+
+<p class="equation">\(
+d(x, y) = \sqrt{\sum_{i=1}^{n}(x_i - y_i)^2}
+\)</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<p>Para os pontos (1,2) e (4,6):</p>
+
+<p class="equation">\(
+d = \sqrt{(4-1)^2 + (6-2)^2} = \sqrt{9 + 16} = 5
+\)</p>
+
+<p><strong>Intuição:</strong> distância "direta" no espaço.</p>
+
+---
+
+<h3>3º - Distância Manhattan</h3>
+
+<p>Também chamada de distância em "grade" (como andar em quarteirões).</p>
+
+<p class="equation">\(
+d(x, y) = \sum_{i=1}^{n} |x_i - y_i|
+\)</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<p class="equation">\(
+d = |4-1| + |6-2| = 3 + 4 = 7
+\)</p>
+
+<p><strong>Intuição:</strong> movimento horizontal + vertical.</p>
+
+---
+
+<h3>4º - Distância Minkowski</h3>
+
+<p>É uma generalização das distâncias anteriores.</p>
+
+<p class="equation">\(
+d(x, y) = \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}
+\)</p>
+
+<ul>
+<li>Se \(p = 1\) → Manhattan</li>
+<li>Se \(p = 2\) → Euclidiana</li>
+</ul>
+
+<p><strong>Intuição:</strong> permite ajustar o comportamento da distância.</p>
+
+---
+
+<h3>5º - Distância Chebyshev</h3>
+
+<p>Considera apenas a maior diferença entre as dimensões.</p>
+
+<p class="equation">\(
+d(x, y) = \max_i |x_i - y_i|
+\)</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<p class="equation">\(
+d = \max(|4-1|, |6-2|) = \max(3,4) = 4
+\)</p>
+
+<p><strong>Intuição:</strong> movimento em "passos máximos".</p>
+
+---
+
+<h3>6º - Comparação Geométrica</h3>
+
+<p>Cada métrica define um formato diferente de vizinhança:</p>
+
+<ul>
+<li><strong>Euclidiana:</strong> círculos (ou esferas)</li>
+<li><strong>Manhattan:</strong> losangos</li>
+<li><strong>Chebyshev:</strong> quadrados</li>
+</ul>
+
+<pre>
+Euclidiana:   Manhattan:   Chebyshev:
+
+   ●             ♦            ■
+</pre>
+
+---
+
+<h3>7º - Impacto da Escala</h3>
+
+<p>Se as variáveis possuem escalas diferentes, a distância fica distorcida.</p>
+
+<p>Exemplo:</p>
+
+<ul>
+<li>Altura: 0–2 metros</li>
+<li>Renda: 0–10000</li>
+</ul>
+
+<p>A renda dominará a distância.</p>
+
+<p><strong>Solução:</strong></p>
+
+<ul>
+<li>Normalização (Min-Max)</li>
+<li>Padronização (Z-score)</li>
+</ul>
+
+---
+
+<h3>8º - Dados Categóricos</h3>
+
+<p>Métricas tradicionais não funcionam bem com dados categóricos.</p>
+
+<p>Uma alternativa simples é a distância de Hamming:</p>
+
+<p class="equation">\(
+d(x, y) = \sum_{i=1}^{n} I(x_i \neq y_i)
+\)</p>
+
+<p>Conta quantas posições são diferentes.</p>
+
+---
+
+<h3>9º - Quando Usar Cada Métrica</h3>
+
+<ul>
+<li><strong>Euclidiana:</strong> dados contínuos e bem escalados</li>
+<li><strong>Manhattan:</strong> dados com ruído ou alta dimensão</li>
+<li><strong>Minkowski:</strong> ajuste fino entre métricas</li>
+<li><strong>Chebyshev:</strong> quando apenas o maior erro importa</li>
+</ul>
+
+---
+
+<h3>10º - Limitações</h3>
+
+<ul>
+<li>Sensível à escala</li>
+<li>Pode perder significado em alta dimensão (curse of dimensionality)</li>
+<li>Nem sempre captura similaridade semântica</li>
+</ul>
+
+---
+
+<h3>11º - Conclusão</h3>
+
+<p>A escolha da métrica de distância é um componente fundamental em modelos baseados em proximidade.</p>
+
+<p>Ela define como os dados são organizados no espaço e pode impactar diretamente a performance do modelo.</p>
+
+<p>Não existe uma métrica universalmente melhor — a escolha depende do problema.</p>
+
+</main>
+
+</body>
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>Random Forest</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Random Forest</h2>
+
+<h3>1º - O Problema: Instabilidade das Árvores</h3>
+
+<p>Árvores de decisão são modelos simples e interpretáveis, mas possuem um problema importante:</p>
+
+<ul>
+<li>Alta variância (mudanças pequenas nos dados geram árvores muito diferentes)</li>
+</ul>
+
+<p>Isso pode levar a <strong>overfitting</strong>.</p>
+
+---
+
+<h3>2º - Ideia do Random Forest</h3>
+
+<p>O Random Forest resolve esse problema combinando várias árvores de decisão.</p>
+
+<p>Em vez de usar uma única árvore, usamos uma <strong>floresta de árvores</strong>.</p>
+
+<ul>
+<li>Cada árvore é treinada com uma amostra diferente dos dados</li>
+<li>As previsões são combinadas</li>
+</ul>
+
+---
+
+<h3>3º - Bagging (Bootstrap Aggregating)</h3>
+
+<p>O primeiro componente do Random Forest é o <strong>bagging</strong>.</p>
+
+<p>Passos:</p>
+
+<ul>
+<li>Amostramos o dataset com reposição (bootstrap)</li>
+<li>Treinamos uma árvore para cada amostra</li>
+<li>Repetimos várias vezes</li>
+</ul>
+
+<p>Isso gera árvores diferentes, reduzindo a variância.</p>
+
+---
+
+<h3>4º - Aleatoriedade nas Features</h3>
+
+<p>Além do bagging, o Random Forest introduz mais aleatoriedade:</p>
+
+<ul>
+<li>Em cada divisão da árvore, apenas um subconjunto das features é considerado</li>
+</ul>
+
+<p>Isso evita que todas as árvores fiquem muito parecidas.</p>
+
+---
+
+<h3>5º - Como Funciona (Resumo)</h3>
+
+<ul>
+<li>Para cada árvore:</li>
+<ul>
+<li>Amostra bootstrap dos dados</li>
+<li>Cresce uma árvore de decisão</li>
+<li>Em cada split, escolhe um subconjunto de variáveis</li>
+</ul>
+</ul>
+
+---
+
+<h3>6º - Regra de Decisão</h3>
+
+<p><strong>Classificação:</strong> votação majoritária</p>
+
+<p class="equation">
+\(
+\hat{y} = \text{arg max}_{c} \sum_{t=1}^{T} I(h_t(x) = c)
+\)
+</p>
+
+<p><strong>Regressão:</strong> média das previsões</p>
+
+<p class="equation">
+\(
+\hat{y} = \frac{1}{T} \sum_{t=1}^{T} h_t(x)
+\)
+</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(T\): número de árvores</li>
+<li>\(h_t(x)\): previsão da árvore \(t\)</li>
+</ul>
+
+---
+
+<h3>7º - Intuição</h3>
+
+<p>Cada árvore individual pode cometer erros diferentes.</p>
+
+<p>Ao combinar várias árvores:</p>
+
+<ul>
+<li>Erros individuais tendem a se cancelar</li>
+<li>O modelo final fica mais estável</li>
+</ul>
+
+---
+
+<h3>8º - Importância das Features</h3>
+
+<p>O Random Forest permite estimar a importância das variáveis.</p>
+
+<p>Ideia:</p>
+
+<ul>
+<li>Medir o quanto cada feature reduz o erro nas árvores</li>
+</ul>
+
+<p>Isso ajuda na interpretação do modelo.</p>
+
+---
+
+<h3>9º - Vantagens</h3>
+
+<ul>
+<li>Reduz overfitting em relação à árvore única</li>
+<li>Funciona bem sem muito ajuste</li>
+<li>Lida bem com dados não lineares</li>
+<li>Robusto a ruído</li>
+</ul>
+
+---
+
+<h3>10º - Limitações</h3>
+
+<ul>
+<li>Menos interpretável que uma árvore única</li>
+<li>Pode ser mais lento (muitas árvores)</li>
+<li>Modelo maior (uso de memória)</li>
+</ul>
+
+---
+
+<h3>11º - Relação com Bagging</h3>
+
+<p>O Random Forest é uma extensão do bagging:</p>
+
+<ul>
+<li>Bagging: apenas amostragem dos dados</li>
+<li>Random Forest: amostragem + aleatoriedade nas features</li>
+</ul>
+
+---
+
+<h3>12º - Conclusão</h3>
+
+<p>O Random Forest é um dos modelos mais utilizados em machine learning.</p>
+
+<p>Ele combina simplicidade com boa performance, sendo uma escolha sólida para diversos problemas.</p>
+
+<p>Ao reduzir a variância das árvores, consegue generalizar melhor e evitar overfitting.</p>
+
+</main>
+
+</body>
+</html>
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>SVM com Kernel</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Support Vector Machine (SVM) - Kernel</h2>
+
+<h3>1º - O Problema: Dados Não Linearmente Separáveis</h3>
+
+<p>Considere um conjunto de dados onde as classes não podem ser separadas por uma linha reta.</p>
+
+<pre>
+Classe + (círculo interno)
+Classe - (região externa)
+
+      • • • • •
+    •           •
+  •      +        •
+  •               •
+    •           •
+      • • • • •
+</pre>
+
+<p>Nesse cenário, um modelo linear falha, pois não existe uma linha que separe corretamente as classes.</p>
+
+---
+
+<h3>2º - Ideia do Kernel Trick</h3>
+
+<p>A solução do SVM é transformar os dados para um espaço de maior dimensão onde eles se tornam separáveis linearmente.</p>
+
+<ul>
+<li>No espaço original → não separável</li>
+<li>No espaço transformado → separável por um hiperplano</li>
+</ul>
+
+<p>Essa transformação é feita por uma função \(\phi(x)\).</p>
+
+<p><strong>Problema:</strong> calcular \(\phi(x)\) explicitamente pode ser caro.</p>
+
+<p><strong>Solução:</strong> usar o <strong>Kernel Trick</strong>.</p>
+
+---
+
+<h3>3º - O que é um Kernel?</h3>
+
+<p>Um kernel é uma função que calcula o produto interno no espaço transformado sem precisar calcular \(\phi(x)\):</p>
+
+<p class="equation">
+\(
+K(x, x') = \phi(x) \cdot \phi(x')
+\)
+</p>
+
+<p>Isso permite trabalhar em espaços de alta dimensão de forma eficiente.</p>
+
+---
+
+<h3>4º - Função de Decisão</h3>
+
+<p>A função de decisão do SVM com kernel é:</p>
+
+<p class="equation">
+\(
+f(x) = \sum_{i=1}^{n} \alpha_i y_i K(x_i, x) + b
+\)
+</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(x_i\): pontos de treinamento</li>
+<li>\(y_i\): rótulos (\(+1\) ou \(-1\))</li>
+<li>\(\alpha_i\): coeficientes aprendidos</li>
+<li>\(K(x_i, x)\): função kernel</li>
+<li>\(b\): bias</li>
+</ul>
+
+<p>A previsão é dada pelo sinal de \(f(x)\).</p>
+
+---
+
+<h3>5º - Tipos de Kernel</h3>
+
+<h4>Kernel Linear</h4>
+<p class="equation">\(
+K(x, x') = x \cdot x'
+\)</p>
+
+<p>Equivalente ao SVM linear.</p>
+
+---
+
+<h4>Kernel Polinomial</h4>
+<p class="equation">\(
+K(x, x') = (x \cdot x' + c)^d
+\)</p>
+
+<ul>
+<li>\(d\): grau do polinômio</li>
+<li>\(c\): constante</li>
+</ul>
+
+---
+
+<h4>Kernel RBF (Gaussiano)</h4>
+<p class="equation">\(
+K(x, x') = \exp(-\gamma ||x - x'||^2)
+\)</p>
+
+<ul>
+<li>\(\gamma\): controla a influência dos pontos</li>
+</ul>
+
+<p>É o mais utilizado na prática.</p>
+
+---
+
+<h3>6º - Intuição do Kernel RBF</h3>
+
+<p>O kernel RBF mede similaridade baseada na distância:</p>
+
+<ul>
+<li>Pontos próximos → valor alto</li>
+<li>Pontos distantes → valor próximo de 0</li>
+</ul>
+
+<p>Isso cria fronteiras de decisão não lineares.</p>
+
+---
+
+<h3>7º - Papel dos Support Vectors</h3>
+
+<p>Assim como no SVM linear, apenas alguns pontos influenciam a decisão:</p>
+
+<ul>
+<li>Os pontos mais próximos da fronteira</li>
+<li>Chamados de <strong>support vectors</strong></li>
+</ul>
+
+<p>Os demais pontos não afetam diretamente o modelo.</p>
+
+---
+
+<h3>8º - Hiperparâmetros Importantes</h3>
+
+<ul>
+<li><strong>C:</strong> controla a penalização de erros
+    <ul>
+        <li>C alto → menos erro, mais overfitting</li>
+        <li>C baixo → mais margem, mais generalização</li>
+    </ul>
+</li>
+
+<li><strong>\(\gamma\):</strong> controla a influência dos pontos
+    <ul>
+        <li>\(\gamma\) alto → fronteiras complexas</li>
+        <li>\(\gamma\) baixo → fronteiras suaves</li>
+    </ul>
+</li>
+</ul>
+
+---
+
+<h3>9º - Interpretação Geométrica</h3>
+
+<p>No espaço original, a fronteira pode ser curva:</p>
+
+<pre>
+Classe + dentro do círculo
+Classe - fora
+
+Fronteira: curva fechada
+</pre>
+
+<p>No espaço transformado, essa fronteira se torna linear.</p>
+
+---
+
+<h3>10º - Limitações</h3>
+
+<ul>
+<li>Escolha do kernel pode ser difícil</li>
+<li>Escalabilidade limitada para grandes datasets</li>
+<li>Interpretação difícil em kernels complexos</li>
+</ul>
+
+---
+
+<h3>11º - Conclusão</h3>
+
+<p>O SVM com kernel permite lidar com dados não linearmente separáveis.</p>
+
+<p>Usando o kernel trick, conseguimos trabalhar em espaços de alta dimensão sem custo computacional elevado.</p>
+
+<p>É um modelo poderoso, especialmente com o kernel RBF, mas depende de uma boa escolha de hiperparâmetros.</p>
+
+</main>
+
+</body>
+</html>
+

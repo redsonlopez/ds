@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>K-Means</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>K-Means (Clustering)</h2>
+
+<h3>1º - O Problema: Agrupar Dados</h3>
+
+<p>Considere o seguinte conjunto de pontos:</p>
+
+<table>
+<thead>
+<tr>
+<th>X</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>2</td></tr>
+<tr><td>2</td><td>1</td></tr>
+<tr><td>3</td><td>2</td></tr>
+<tr><td>8</td><td>9</td></tr>
+<tr><td>9</td><td>8</td></tr>
+<tr><td>10</td><td>9</td></tr>
+</tbody>
+</table>
+
+<p>Queremos dividir esses dados em grupos semelhantes, sem ter rótulos.</p>
+
+---
+
+<h3>2º - Ideia do K-Means</h3>
+
+<p>O K-Means é um algoritmo de <strong>aprendizado não supervisionado</strong>.</p>
+
+<p>Ele busca dividir os dados em <strong>K grupos (clusters)</strong> de forma que pontos do mesmo grupo sejam próximos entre si.</p>
+
+<ul>
+<li>Escolhemos o número de clusters <strong>K</strong></li>
+<li>Cada cluster possui um <strong>centroide</strong></li>
+<li>Os pontos são atribuídos ao centroide mais próximo</li>
+<li>Os centroides são atualizados iterativamente</li>
+</ul>
+
+---
+
+<h3>3º - Passo a Passo do Algoritmo</h3>
+
+<ol>
+<li>Inicializar K centroides (aleatoriamente)</li>
+<li>Atribuir cada ponto ao centroide mais próximo</li>
+<li>Atualizar os centroides (média dos pontos do cluster)</li>
+<li>Repetir até convergir</li>
+</ol>
+
+---
+
+<h3>4º - Medindo Distância</h3>
+
+<p>Geralmente usamos a distância Euclidiana:</p>
+
+<p class="equation">\(
+d(x, y) = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}
+\)</p>
+
+---
+
+<h3>5º - Atualização dos Centroides</h3>
+
+<p>O centroide de um cluster é a média dos pontos atribuídos a ele:</p>
+
+<p class="equation">
+\(
+\mu_k = \frac{1}{N_k} \sum_{i \in C_k} x_i
+\)
+</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(C_k\): conjunto de pontos do cluster k</li>
+<li>\(N_k\): número de pontos no cluster</li>
+</ul>
+
+---
+
+<h3>6º - Função Objetivo</h3>
+
+<p>O K-Means busca minimizar a soma das distâncias quadráticas dentro dos clusters:</p>
+
+<p class="equation">
+\(
+J = \sum_{k=1}^{K} \sum_{i \in C_k} \|x_i - \mu_k\|^2
+\)
+</p>
+
+<p>Ou seja, queremos clusters compactos.</p>
+
+---
+
+<h3>7º - Interpretação Geométrica</h3>
+
+<pre>
+Y
+^
+10|            •      •      •
+  |
+  |
+  |
+  |
+  |
+  |  •   •   •
+  |
+  +---------------------------> X
+</pre>
+
+<p>Visualmente, o algoritmo separa os pontos em dois grupos: um à esquerda e outro à direita.</p>
+
+---
+
+<h3>8º - Escolha do K</h3>
+
+<p>O valor de K precisa ser definido antes.</p>
+
+<p>Uma técnica comum é o <strong>Método do Cotovelo (Elbow Method)</strong>.</p>
+
+<p>Ele analisa como o erro diminui conforme aumentamos K.</p>
+
+---
+
+<h3>9º - Impacto da Inicialização</h3>
+
+<p>Os centroides iniciais influenciam o resultado final.</p>
+
+<ul>
+<li>Pode convergir para soluções diferentes</li>
+<li>Uma solução comum é usar <strong>K-Means++</strong></li>
+</ul>
+
+---
+
+<h3>10º - Impacto da Escala</h3>
+
+<p>Assim como no KNN, variáveis com escalas diferentes distorcem a distância.</p>
+
+<p>É necessário normalizar os dados.</p>
+
+---
+
+<h3>11º - Limitações</h3>
+
+<ul>
+<li>Precisa definir K previamente</li>
+<li>Sensível à inicialização</li>
+<li>Sensível a outliers</li>
+<li>Assume clusters esféricos</li>
+</ul>
+
+---
+
+<h3>12º - Conclusão</h3>
+
+<p>O K-Means é um dos algoritmos mais simples e populares de clustering.</p>
+
+<p>Ele agrupa dados com base em proximidade e minimização de variância interna.</p>
+
+<p>Apesar das limitações, é amplamente utilizado em problemas exploratórios.</p>
+
+</main>
+
+</body>
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>SVM Linear</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Support Vector Machine (SVM) - Linear</h2>
+
+<h3>1º - O Problema: Separar Classes</h3>
+
+<p>Considere um conjunto de dados com duas classes:</p>
+
+<ul>
+<li>Classe +1 (Aprovado)</li>
+<li>Classe -1 (Reprovado)</li>
+</ul>
+
+<p>Nosso objetivo é encontrar uma <strong>linha (ou hiperplano)</strong> que separe essas duas classes.</p>
+
+---
+
+<h3>2º - Ideia Principal</h3>
+
+<p>Existem várias linhas que podem separar os dados.</p>
+
+<p>O SVM escolhe a melhor delas: aquela que <strong>maximiza a margem</strong>.</p>
+
+<p>A margem é a distância entre a fronteira de decisão e os pontos mais próximos de cada classe.</p>
+
+---
+
+<h3>3º - Hiperplano de Separação</h3>
+
+<p>O modelo define um hiperplano:</p>
+
+<p class="equation">\(
+w \cdot x + b = 0
+\)</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(w\): vetor de pesos</li>
+<li>\(x\): vetor de entrada</li>
+<li>\(b\): viés</li>
+</ul>
+
+<p>A regra de decisão é:</p>
+
+<p class="equation">\(
+\hat{y} = \text{sign}(w \cdot x + b)
+\)</p>
+
+---
+
+<h3>4º - Margem Máxima</h3>
+
+<p>O SVM busca maximizar a margem:</p>
+
+<p class="equation">\(
+\text{Margem} = \frac{2}{\|w\|}
+\)</p>
+
+<p>Isso equivale a minimizar:</p>
+
+<p class="equation">\(
+\frac{1}{2} \|w\|^2
+\)</p>
+
+<p>Sujeito à restrição:</p>
+
+<p class="equation">\(
+y_i (w \cdot x_i + b) \geq 1
+\)</p>
+
+---
+
+<h3>5º - Vetores de Suporte</h3>
+
+<p>Nem todos os pontos influenciam o modelo.</p>
+
+<p>Apenas os pontos mais próximos da fronteira importam.</p>
+
+<p>Esses pontos são chamados de <strong>vetores de suporte</strong>.</p>
+
+---
+
+<h3>6º - Intuição Geométrica</h3>
+
+<pre>
+Classe +1
+   o       o
+      o
+
+-------------  ← Hiperplano
+
+      x
+   x       x
+Classe -1
+</pre>
+
+<p>O SVM posiciona a linha de forma que fique o mais distante possível dos pontos mais próximos de cada classe.</p>
+
+---
+
+<h3>7º - Margem Suave (Soft Margin)</h3>
+
+<p>Na prática, os dados não são perfeitamente separáveis.</p>
+
+<p>Introduzimos variáveis de folga \(\xi_i\):</p>
+
+<p class="equation">\(
+y_i (w \cdot x_i + b) \geq 1 - \xi_i
+\)</p>
+
+<p>Nova função objetivo:</p>
+
+<p class="equation">\(
+\frac{1}{2} \|w\|^2 + C \sum \xi_i
+\)</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(C\): controla o trade-off entre margem larga e erros</li>
+</ul>
+
+---
+
+<h3>8º - Papel do Parâmetro C</h3>
+
+<ul>
+<li><strong>C alto:</strong> penaliza erros → margem menor (overfitting)</li>
+<li><strong>C baixo:</strong> permite erros → margem maior (underfitting)</li>
+</ul>
+
+---
+
+<h3>9º - Importância da Escala</h3>
+
+<p>O SVM depende de produto escalar, então a escala dos dados importa.</p>
+
+<p>É necessário aplicar:</p>
+
+<ul>
+<li>Padronização (z-score)</li>
+<li>Normalização</li>
+</ul>
+
+---
+
+<h3>10º - Limitações</h3>
+
+<ul>
+<li>Não funciona bem com dados não linearmente separáveis (sem kernel)</li>
+<li>Sensível à escolha de C</li>
+<li>Escala influencia fortemente o resultado</li>
+</ul>
+
+---
+
+<h3>11º - Conclusão</h3>
+
+<p>O SVM linear é um modelo poderoso para classificação binária.</p>
+
+<p>Sua principal característica é encontrar uma fronteira de decisão com <strong>margem máxima</strong>.</p>
+
+<p>Ele depende apenas de alguns pontos críticos (vetores de suporte), o que o torna eficiente em muitos casos.</p>
+
+</main>
+
+</body>
+</html>
+

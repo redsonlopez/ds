@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../../assets/css/style.css">
+
+<title>Escalonamento e Normalização</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Escalonamento e Normalização (Scaling & Normalization)</h2>
+
+<h3>1º - O Problema: Escalas Diferentes</h3>
+
+<p>Em muitos conjuntos de dados, as variáveis possuem escalas muito diferentes.</p>
+
+<p>Exemplo:</p>
+
+<table>
+<thead>
+<tr>
+<th>Altura (cm)</th>
+<th>Renda (R$)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>170</td><td>2000</td></tr>
+<tr><td>180</td><td>5000</td></tr>
+<tr><td>160</td><td>3000</td></tr>
+</tbody>
+</table>
+
+<p>A variável renda possui valores muito maiores que altura.</p>
+
+<p><strong>Problema:</strong><br>
+Alguns modelos passam a dar mais importância para variáveis com maior escala.</p>
+
+---
+
+<h3>2º - Quando isso é um problema?</h3>
+
+<p>Modelos que dependem de distância ou otimização são sensíveis à escala:</p>
+
+<ul>
+<li>KNN</li>
+<li>K-Means</li>
+<li>Regressão logística</li>
+<li>Redes neurais</li>
+</ul>
+
+<p>Modelos baseados em árvores geralmente não são afetados.</p>
+
+---
+
+<h3>3º - Padronização (Standardization)</h3>
+
+<p>Transforma os dados para terem:</p>
+
+<ul>
+<li>média = 0</li>
+<li>desvio padrão = 1</li>
+</ul>
+
+<p class="equation">\(
+x' = \frac{x - \mu}{\sigma}
+\)</p>
+
+<ul>
+<li>\(\mu\): média</li>
+<li>\(\sigma\): desvio padrão</li>
+</ul>
+
+<p><strong>Resultado:</strong> valores centrados e comparáveis.</p>
+
+---
+
+<h3>4º - Normalização (Min-Max Scaling)</h3>
+
+<p>Transforma os valores para um intervalo fixo, geralmente [0, 1].</p>
+
+<p class="equation">\(
+x' = \frac{x - x_{min}}{x_{max} - x_{min}}
+\)</p>
+
+<ul>
+<li>\(x_{min}\): menor valor</li>
+<li>\(x_{max}\): maior valor</li>
+</ul>
+
+<p><strong>Resultado:</strong> todos os valores ficam dentro do mesmo intervalo.</p>
+
+---
+
+<h3>5º - Comparação</h3>
+
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Padronização</td><td>Média 0, desvio 1</td></tr>
+<tr><td>Normalização</td><td>Intervalo fixo [0,1]</td></tr>
+</tbody>
+</table>
+
+---
+
+<h3>6º - Qual usar?</h3>
+
+<ul>
+<li>Padronização → mais comum em modelos lineares e redes neurais</li>
+<li>Normalização → útil quando há limites conhecidos</li>
+</ul>
+
+<p>Na prática, padronização costuma ser a escolha padrão.</p>
+
+---
+
+<h3>7º - Problema com Outliers</h3>
+
+<ul>
+<li>Normalização é sensível a valores extremos</li>
+<li>Padronização também pode ser afetada, mas menos diretamente</li>
+</ul>
+
+<p>Outliers podem distorcer a escala dos dados.</p>
+
+---
+
+<h3>8º - Boa prática: ajustar no treino</h3>
+
+<p>O escalonamento deve ser feito usando apenas os dados de treino.</p>
+
+<p>Depois, os mesmos parâmetros são aplicados no teste.</p>
+
+<p><strong>Por quê?</strong><br>
+Para evitar vazamento de informação (data leakage).</p>
+
+---
+
+<h3>9º - Interpretação</h3>
+
+<ul>
+<li>Escalonamento não muda a relação entre os dados</li>
+<li>Apenas muda a escala</li>
+<li>Facilita o aprendizado dos modelos</li>
+</ul>
+
+---
+
+<h3>10º - Conclusão</h3>
+
+<p>Escalonamento e normalização são etapas essenciais do pré-processamento.</p>
+
+<ul>
+<li>Evitam viés causado por escala</li>
+<li>Melhoram a convergência de algoritmos</li>
+<li>São fundamentais para modelos baseados em distância</li>
+</ul>
+
+<p>Ignorar essa etapa pode comprometer o desempenho do modelo.</p>
+
+</main>
+
+</body>
+</html>
+

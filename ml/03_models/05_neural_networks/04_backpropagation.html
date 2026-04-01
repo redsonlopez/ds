@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>Backpropagation</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Backpropagation</h2>
+
+<h3>1º - O Problema: Como Ajustar os Pesos?</h3>
+
+<p>Em redes neurais, fazemos previsões a partir de pesos e vieses.</p>
+
+<p>Mas como sabemos se esses pesos estão corretos?</p>
+
+<p>Precisamos de um método para:</p>
+
+<ul>
+<li>Medir o erro da previsão</li>
+<li>Descobrir como cada peso contribui para esse erro</li>
+<li>Ajustar os pesos para reduzir o erro</li>
+</ul>
+
+<p>O algoritmo responsável por isso é o <strong>Backpropagation</strong>.</p>
+
+---
+
+<h3>2º - Ideia Geral</h3>
+
+<p>O processo acontece em duas etapas:</p>
+
+<ul>
+<li><strong>Forward pass:</strong> calcula a saída da rede</li>
+<li><strong>Backward pass:</strong> calcula como o erro se propaga para trás</li>
+</ul>
+
+<p>O objetivo é calcular o gradiente da função de perda em relação a cada peso.</p>
+
+---
+
+<h3>3º - Exemplo Simples (1 Neurônio)</h3>
+
+<p>Considere um neurônio com:</p>
+
+<ul>
+<li>Entrada: \( x \)</li>
+<li>Peso: \( w \)</li>
+<li>Viés: \( b \)</li>
+</ul>
+
+<p>Saída linear:</p>
+
+<p class="equation">\(
+z = wx + b
+\)</p>
+
+<p>Saída com ativação:</p>
+
+<p class="equation">\(
+\hat{y} = f(z)
+\)</p>
+
+<p>Erro (exemplo com MSE):</p>
+
+<p class="equation">\(
+L = (y - \hat{y})^2
+\)</p>
+
+---
+
+<h3>4º - O Objetivo</h3>
+
+<p>Queremos calcular:</p>
+
+<p class="equation">\(
+\frac{\partial L}{\partial w}
+\)</p>
+
+<p>Ou seja, como o erro muda quando alteramos o peso.</p>
+
+---
+
+<h3>5º - Regra da Cadeia</h3>
+
+<p>Como \(L\) depende de várias funções compostas, usamos a <strong>regra da cadeia</strong>:</p>
+
+<p class="equation">\(
+\frac{\partial L}{\partial w} =
+\frac{\partial L}{\partial \hat{y}} \cdot
+\frac{\partial \hat{y}}{\partial z} \cdot
+\frac{\partial z}{\partial w}
+\)</p>
+
+<p>Calculando cada parte:</p>
+
+<ul>
+<li>\( \frac{\partial L}{\partial \hat{y}} = -2(y - \hat{y}) \)</li>
+<li>\( \frac{\partial \hat{y}}{\partial z} = f'(z) \)</li>
+<li>\( \frac{\partial z}{\partial w} = x \)</li>
+</ul>
+
+<p>Logo:</p>
+
+<p class="equation">\(
+\frac{\partial L}{\partial w} = -2(y - \hat{y}) \cdot f'(z) \cdot x
+\)</p>
+
+---
+
+<h3>6º - Intuição</h3>
+
+<p>O gradiente é composto por três fatores:</p>
+
+<ul>
+<li><strong>Erro:</strong> quanto a previsão errou</li>
+<li><strong>Sensibilidade da ativação:</strong> como a saída muda</li>
+<li><strong>Entrada:</strong> impacto do peso</li>
+</ul>
+
+<p>Isso mostra como cada peso influencia o erro final.</p>
+
+---
+
+<h3>7º - Atualização dos Pesos</h3>
+
+<p>Usamos gradiente descendente:</p>
+
+<p class="equation">\(
+w \leftarrow w - \eta \frac{\partial L}{\partial w}
+\)</p>
+
+<p>Onde:</p>
+
+<ul>
+<li>\( \eta \): taxa de aprendizado</li>
+</ul>
+
+---
+
+<h3>8º - Múltiplas Camadas</h3>
+
+<p>Em redes profundas, o erro precisa atravessar várias camadas.</p>
+
+<p>O backpropagation faz isso propagando o erro da saída para as camadas anteriores.</p>
+
+<p>Cada camada recebe um "erro" e calcula seus próprios gradientes.</p>
+
+---
+
+<h3>9º - Fluxo do Algoritmo</h3>
+
+<ul>
+<li>1. Forward pass → calcular \( \hat{y} \)</li>
+<li>2. Calcular erro \( L \)</li>
+<li>3. Backward pass → calcular gradientes</li>
+<li>4. Atualizar pesos</li>
+</ul>
+
+---
+
+<h3>10º - Problemas Práticos</h3>
+
+<ul>
+<li><strong>Gradiente muito pequeno:</strong> aprendizado lento (vanishing gradient)</li>
+<li><strong>Gradiente muito grande:</strong> instabilidade (exploding gradient)</li>
+</ul>
+
+---
+
+<h3>11º - Interpretação Geométrica</h3>
+
+<p>O backpropagation calcula a direção de maior redução do erro.</p>
+
+<p>É como descer uma montanha seguindo a inclinação mais acentuada.</p>
+
+---
+
+<h3>12º - Conclusão</h3>
+
+<p>Backpropagation é o mecanismo que permite treinar redes neurais.</p>
+
+<p>Ele usa cálculo diferencial e a regra da cadeia para ajustar os pesos de forma eficiente.</p>
+
+<p>Sem ele, redes neurais profundas seriam inviáveis na prática.</p>
+
+</main>
+
+</body>
+</html>
+

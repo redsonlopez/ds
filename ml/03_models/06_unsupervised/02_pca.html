@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./../../../assets/css/style.css">
+
+<title>PCA - Análise de Componentes Principais</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>PCA (Principal Component Analysis)</h2>
+
+<h3>1º - O Problema: Muitas Variáveis</h3>
+
+<p>Considere um conjunto de dados com duas variáveis:</p>
+
+<table>
+<thead>
+<tr>
+<th>Altura (cm)</th>
+<th>Peso (kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>150</td><td>50</td></tr>
+<tr><td>160</td><td>60</td></tr>
+<tr><td>170</td><td>65</td></tr>
+<tr><td>180</td><td>80</td></tr>
+<tr><td>190</td><td>90</td></tr>
+</tbody>
+</table>
+
+<p>Essas variáveis são <strong>correlacionadas</strong>.</p>
+
+<p>O problema é:</p>
+
+<ul>
+<li>Redundância de informação</li>
+<li>Dificuldade de visualização em alta dimensão</li>
+<li>Custo computacional maior</li>
+</ul>
+
+<p>Queremos reduzir a dimensionalidade mantendo o máximo de informação possível.</p>
+
+---
+
+<h3>2º - Ideia do PCA</h3>
+
+<p>O PCA cria <strong>novas variáveis</strong> chamadas <strong>componentes principais</strong>.</p>
+
+<ul>
+<li>São combinações lineares das variáveis originais</li>
+<li>São <strong>ortogonais</strong> (independentes entre si)</li>
+<li>Capturam a <strong>maior variância possível</strong></li>
+</ul>
+
+---
+
+<h3>3º - Intuição Geométrica</h3>
+
+<p>Imagine os dados em um plano:</p>
+
+<pre>
+Peso (Y)
+  ^
+90|                •
+80|            •
+70|
+60|        •
+50|    •
+   |
+   +------------------------> Altura (X)
+       150 160 170 180 190
+</pre>
+
+<p>Os pontos seguem uma direção principal.</p>
+
+<p>O PCA encontra essa direção (linha inclinada) e projeta os dados nela.</p>
+
+---
+
+<h3>4º - Centralização dos Dados</h3>
+
+<p>Primeiro, subtraímos a média de cada variável:</p>
+
+<p class="equation">\(
+X_{centralizado} = X - \bar{X}
+\)</p>
+
+<p>Isso move os dados para o centro (origem).</p>
+
+---
+
+<h3>5º - Matriz de Covariância</h3>
+
+<p>Calculamos a matriz de covariância:</p>
+
+<p class="equation">\(
+\Sigma = \frac{1}{n} X^T X
+\)</p>
+
+<p>Ela mede como as variáveis variam juntas.</p>
+
+---
+
+<h3>6º - Autovalores e Autovetores</h3>
+
+<p>O PCA resolve:</p>
+
+<p class="equation">\(
+\Sigma v = \lambda v
+\)</p>
+
+<ul>
+<li>\(v\): autovetores (direções)</li>
+<li>\(\lambda\): autovalores (importância)</li>
+</ul>
+
+<p>O maior autovalor indica a direção de maior variância.</p>
+
+---
+
+<h3>7º - Componentes Principais</h3>
+
+<p>Ordenamos os autovalores:</p>
+
+<ul>
+<li>1º componente → maior variância</li>
+<li>2º componente → segunda maior (ortogonal ao primeiro)</li>
+</ul>
+
+<p>Selecionamos os primeiros \(k\) componentes.</p>
+
+---
+
+<h3>8º - Projeção dos Dados</h3>
+
+<p>Projetamos os dados nos novos eixos:</p>
+
+<p class="equation">\(
+Z = XW
+\)</p>
+
+<p>Onde:</p>
+<ul>
+<li>\(X\): dados originais</li>
+<li>\(W\): matriz com os autovetores</li>
+<li>\(Z\): dados transformados</li>
+</ul>
+
+---
+
+<h3>9º - Redução de Dimensionalidade</h3>
+
+<p>Se temos 2 variáveis, podemos reduzir para 1:</p>
+
+<ul>
+<li>Usamos apenas o primeiro componente</li>
+<li>Perdemos pouca informação</li>
+</ul>
+
+<p>Isso simplifica o problema.</p>
+
+---
+
+<h3>10º - Variância Explicada</h3>
+
+<p>A fração da variância explicada é:</p>
+
+<p class="equation">\(
+\frac{\lambda_i}{\sum_j \lambda_j}
+\)</p>
+
+<p>Usamos isso para decidir quantos componentes manter.</p>
+
+---
+
+<h3>11º - Quando Usar PCA</h3>
+
+<ul>
+<li>Redução de dimensionalidade</li>
+<li>Visualização de dados</li>
+<li>Remoção de ruído</li>
+<li>Pré-processamento para outros modelos</li>
+</ul>
+
+---
+
+<h3>12º - Limitações</h3>
+
+<ul>
+<li>Assume relações lineares</li>
+<li>Difícil interpretação das componentes</li>
+<li>Sensível à escala dos dados</li>
+</ul>
+
+---
+
+<h3>13º - Conclusão</h3>
+
+<p>O PCA transforma dados correlacionados em um novo conjunto de variáveis independentes.</p>
+
+<p>Ele reduz dimensionalidade mantendo a maior quantidade possível de informação.</p>
+
+<p>É uma das técnicas mais importantes em aprendizado não supervisionado.</p>
+
+</main>
+
+</body>
+</html>
+
