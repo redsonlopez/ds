@@ -4,15 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="../../../assets/css/style.css">
-
 <title>Funções de Perda</title>
 
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../components/base.js"></script>
+    <script src="components/site-sidebar.js" defer></script>
+    <script src="components/site-footer.js" defer></script>
 
-</head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
 
-<body>
+  <body>
+
+    <site-sidebar></site-sidebar>
 
 <main>
 
@@ -169,6 +173,11 @@ R_{emp} = \frac{1}{n} \sum L(y_i, \hat{y}_i)
 <p>Escolher a função correta é tão importante quanto escolher o modelo.</p>
 
 </main>
+
+  <site-footer
+    prev="ml/01_fundamentals/01_empirical_risk.html"
+    next="ml/01_fundamentals/02_bias_variance.html">
+  </site-footer>
 
 </body>
 </html>
