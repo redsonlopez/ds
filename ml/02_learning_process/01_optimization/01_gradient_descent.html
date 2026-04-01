@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../../../../assets/css/style.css">
+
+<title>Gradiente Descendente</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+
+<main>
+
+<h2>Gradiente Descendente (Gradient Descent)</h2>
+
+<h3>1º - O Problema: Minimizar o erro</h3>
+
+<p>Em machine learning, treinamos modelos minimizando uma função de erro.</p>
+
+<p>Por exemplo:</p>
+
+<p class="equation">\(
+R_{emp} = \frac{1}{n} \sum L(y_i, \hat{y}_i)
+\)</p>
+
+<p>O desafio é encontrar os parâmetros \(\theta\) que minimizam essa função.</p>
+
+<p>Nem sempre existe solução analítica simples, então usamos métodos numéricos.</p>
+
+---
+
+<h3>2º - Ideia Intuitiva</h3>
+
+<p>Imagine uma superfície com vales e montanhas.</p>
+
+<p>Queremos encontrar o ponto mais baixo (mínimo).</p>
+
+<p>O gradiente descendente faz isso iterativamente:</p>
+
+<ul>
+<li>calcula a direção de maior crescimento</li>
+<li>anda na direção oposta</li>
+</ul>
+
+<p><strong>Ou seja:</strong> sempre desce a "ladeira" mais íngreme.</p>
+
+---
+
+<h3>3º - O Gradiente</h3>
+
+<p>O gradiente é um vetor de derivadas parciais:</p>
+
+<p class="equation">\(
+\nabla J(\theta) = 
+\left(
+\frac{\partial J}{\partial \theta_1}, 
+\frac{\partial J}{\partial \theta_2}, 
+\ldots
+\right)
+\)</p>
+
+<ul>
+<li>Indica a direção de maior aumento da função</li>
+<li>Seu oposto indica a direção de descida</li>
+</ul>
+
+---
+
+<h3>4º - Regra de Atualização</h3>
+
+<p>Os parâmetros são atualizados iterativamente:</p>
+
+<p class="equation">\(
+\theta := \theta - \alpha \cdot \nabla J(\theta)
+\)</p>
+
+<ul>
+<li>\(\theta\): parâmetros do modelo</li>
+<li>\(\alpha\): taxa de aprendizado (learning rate)</li>
+<li>\(\nabla J(\theta)\): gradiente</li>
+</ul>
+
+---
+
+<h3>5º - Taxa de Aprendizado (\(\alpha\))</h3>
+
+<ul>
+<li>\(\alpha\) pequeno → aprendizado lento</li>
+<li>\(\alpha\) grande → pode divergir</li>
+</ul>
+
+<p>Escolher \(\alpha\) corretamente é essencial.</p>
+
+---
+
+<h3>6º - Exemplo Intuitivo</h3>
+
+<p>Suponha que queremos minimizar:</p>
+
+<p class="equation">\(
+J(\theta) = \theta^2
+\)</p>
+
+<p>O gradiente é:</p>
+
+<p class="equation">\(
+\frac{dJ}{d\theta} = 2\theta
+\)</p>
+
+<p>Atualização:</p>
+
+<p class="equation">\(
+\theta := \theta - \alpha \cdot 2\theta
+\)</p>
+
+<p>Com iterações sucessivas, \(\theta\) se aproxima de zero (mínimo).</p>
+
+---
+
+<h3>7º - Critérios de Parada</h3>
+
+<p>O algoritmo pode parar quando:</p>
+
+<ul>
+<li>o número máximo de iterações é atingido</li>
+<li>a mudança nos parâmetros é pequena</li>
+<li>o gradiente é próximo de zero</li>
+</ul>
+
+---
+
+<h3>8º - Tipos de Gradiente Descendente</h3>
+
+<ul>
+<li><strong>Batch Gradient Descent</strong>: usa todos os dados</li>
+<li><strong>Stochastic Gradient Descent (SGD)</strong>: usa um exemplo por vez</li>
+<li><strong>Mini-batch</strong>: usa pequenos grupos de dados</li>
+</ul>
+
+---
+
+<h3>9º - Limitações</h3>
+
+<ul>
+<li>Pode ficar preso em mínimos locais</li>
+<li>Sensível à escolha de \(\alpha\)</li>
+<li>Pode ser lento em superfícies complexas</li>
+</ul>
+
+---
+
+<h3>10º - Conclusão</h3>
+
+<p>O gradiente descendente é o principal método de otimização em machine learning.</p>
+
+<ul>
+<li>Permite treinar modelos complexos</li>
+<li>Base para redes neurais</li>
+<li>Amplamente utilizado em diversos algoritmos</li>
+</ul>
+
+<p>Entender seu funcionamento é essencial para compreender como os modelos aprendem.</p>
+
+</main>
+
+</body>
+</html>
+
