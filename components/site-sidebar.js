@@ -56,9 +56,9 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/models/svm/kernel-svm.html">SVM com Kernel</a>
         -->
 
+        <!--
         <h2>Redes Neurais</h2>
         <a href="topics/models/neural-networks/perceptron.html">Perceptron</a>
-        <!--
         <a href="topics/models/neural-networks/mlp.html">MLP</a>
         <a href="topics/models/neural-networks/activation-functions.html">Funções de Ativação</a>
         <a href="topics/models/neural-networks/backpropagation.html">Backpropagation</a>
