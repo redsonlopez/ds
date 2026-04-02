@@ -3,6 +3,7 @@ class SiteSidebar extends HTMLElement {
 
     this.innerHTML = `
       <nav>
+        <!--
         <h2>Fundamentos</h2>
         <a href="topics/fundamentals/empirical-risk.html">Risco Empírico</a>
         <a href="topics/fundamentals/loss-functions.html">Funções de Perda</a>
@@ -19,9 +20,11 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/learning-process/evaluation/train-test-split.html">Train/Test Split</a>
         <a href="topics/learning-process/evaluation/cross-validation.html">Validação Cruzada</a>
         <a href="topics/learning-process/evaluation/metrics.html">Métricas</a>
+        -->
 
         <h2>Regressão</h2>
         <a href="topics/models/regression/simple-linear.html">Regressão Linear Simples</a>
+        <!--
         <a href="topics/models/regression/multiple-linear.html">Regressão Linear Múltipla</a>
         <a href="topics/models/regression/polynomial-regression.html">Regressão Polinomial</a>
 
@@ -30,15 +33,19 @@ class SiteSidebar extends HTMLElement {
 
         <h2>Regularização Aplicada</h2>
         <a href="topics/models/regression/regularized-regression.html">Regularização em Modelos Lineares</a>
+        -->
 
-        <h2>Modelos Baseados em Distância</h2>
+        <h2>Baseado em Distância</h2>
         <a href="topics/models/neighbors/knn-classification.html">KNN Classificação</a>
+        <!--
         <a href="topics/models/neighbors/distance-metrics.html">Métricas de Distância</a>
         <a href="topics/models/neighbors/knn-regression.html">KNN Regressão</a>
+        -->
 
         <h2>Árvores</h2>
         <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
 
+        <!--
         <h2>Ensemble</h2>
         <a href="topics/ensemble-methods/bagging.html">Bagging</a>
         <a href="topics/ensemble-methods/random-forest.html">Random Forest</a>
@@ -47,9 +54,11 @@ class SiteSidebar extends HTMLElement {
         <h2>SVM</h2>
         <a href="topics/models/svm/linear-svm.html">SVM Linear</a>
         <a href="topics/models/svm/kernel-svm.html">SVM com Kernel</a>
+        -->
 
         <h2>Redes Neurais</h2>
         <a href="topics/models/neural-networks/perceptron.html">Perceptron</a>
+        <!--
         <a href="topics/models/neural-networks/mlp.html">MLP</a>
         <a href="topics/models/neural-networks/activation-functions.html">Funções de Ativação</a>
         <a href="topics/models/neural-networks/backpropagation.html">Backpropagation</a>
@@ -57,6 +66,7 @@ class SiteSidebar extends HTMLElement {
         <h2>Não Supervisionado</h2>
         <a href="topics/models/unsupervised/kmeans.html">K-Means</a>
         <a href="topics/models/unsupervised/pca.html">PCA</a>
+        -->
 
       </nav>
     `;
