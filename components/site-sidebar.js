@@ -20,9 +20,10 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/learning-process/evaluation/train-test-split.html">Train/Test Split</a>
         <a href="topics/learning-process/evaluation/cross-validation.html">Validação Cruzada</a>
         <a href="topics/learning-process/evaluation/metrics.html">Métricas</a>
-        -->
 
         <h2>Regressão</h2>
+        -->
+        <h2>Modelos</h2>
         <a href="topics/models/regression/simple-linear.html">Regressão Linear Simples</a>
         <!--
         <a href="topics/models/regression/multiple-linear.html">Regressão Linear Múltipla</a>
@@ -33,16 +34,16 @@ class SiteSidebar extends HTMLElement {
 
         <h2>Regularização Aplicada</h2>
         <a href="topics/models/regression/regularized-regression.html">Regularização em Modelos Lineares</a>
-        -->
 
         <h2>Baseado em Distância</h2>
-        <a href="topics/models/neighbors/knn-classification.html">KNN Classificação</a>
+        -->
+        <a href="topics/models/neighbors/knn-classification.html">KNN para Classificação</a>
         <!--
         <a href="topics/models/neighbors/distance-metrics.html">Métricas de Distância</a>
         <a href="topics/models/neighbors/knn-regression.html">KNN Regressão</a>
-        -->
 
         <h2>Árvores</h2>
+        -->
         <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
 
         <!--
