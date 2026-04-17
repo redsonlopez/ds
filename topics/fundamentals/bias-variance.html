@@ -21,66 +21,20 @@
 
 <h2>Bias vs Variance</h2>
 
-<h3>1º - Por que o modelo erra?</h3>
+<h3>1º - Origem do erro</h3>
 
-<p>Ao treinar um modelo, é comum observar erros nas previsões.</p>
+<p>O erro de um modelo pode ser decomposto em diferentes componentes.</p>
 
-<p>Esses erros geralmente vêm de duas fontes principais:</p>
-
-<ul>
-<li><strong>Bias (Viés)</strong></li>
-<li><strong>Variance (Variância)</strong></li>
-</ul>
-
-<p>Entender esse trade-off é essencial para construir bons modelos.</p>
-
-<h3>2º - Intuição: Ajuste do Modelo</h3>
-
-<p>Considere um conjunto de dados com uma relação não linear:</p>
+<p>Os principais são:</p>
 
 <ul>
-<li>Um modelo muito simples pode não capturar o padrão.</li>
-<li>Um modelo muito complexo pode se ajustar demais aos dados.</li>
+<li><strong>Bias (viés)</strong></li>
+<li><strong>Variance (variância)</strong></li>
 </ul>
 
-<p>Isso leva a dois problemas clássicos:</p>
+---
 
-<ul>
-<li><strong>Underfitting</strong> (modelo simples demais)</li>
-<li><strong>Overfitting</strong> (modelo complexo demais)</li>
-</ul>
-
-<h3>3º - Bias (Viés)</h3>
-
-<p>O <strong>bias</strong> mede o erro causado por suposições simplificadoras do modelo.</p>
-
-<p>Modelos com alto bias:</p>
-
-<ul>
-<li>São simples</li>
-<li>Não capturam bem o padrão dos dados</li>
-<li>Têm erro alto tanto no treino quanto no teste</li>
-</ul>
-
-<p>Exemplo: ajustar uma linha reta para dados claramente curvos.</p>
-
-<h3>4º - Variance (Variância)</h3>
-
-<p>A <strong>variance</strong> mede o quanto o modelo varia com pequenas mudanças nos dados.</p>
-
-<p>Modelos com alta variância:</p>
-
-<ul>
-<li>São complexos</li>
-<li>Se ajustam muito ao conjunto de treino</li>
-<li>Têm erro baixo no treino, mas alto no teste</li>
-</ul>
-
-<p>Exemplo: uma curva muito irregular que passa por todos os pontos.</p>
-
-<h3>5º - Decomposição do Erro</h3>
-
-<p>O erro total pode ser decomposto da seguinte forma:</p>
+<h3>2º - Decomposição do erro</h3>
 
 <p class="equation">\(
 Erro = Bias^2 + Variance + Ruído
@@ -92,58 +46,68 @@ Erro = Bias^2 + Variance + Ruído
 <li><strong>Ruído:</strong> erro irreduzível</li>
 </ul>
 
-<h3>6º - Exemplo Visual (Intuitivo)</h3>
+---
 
-<pre>
-Underfitting (alto bias):
+<h3>3º - Bias (Viés)</h3>
 
-   dados reais:   ~~~~
-   modelo:        ----
-
-Boa generalização:
-
-   dados reais:   ~~~~
-   modelo:        ~~~~
-
-Overfitting (alta variância):
-
-   dados reais:   ~~~~
-   modelo:        ~-~-~-~
-</pre>
-
-<h3>7º - Trade-off Bias vs Variance</h3>
-
-<p>Existe um equilíbrio entre bias e variância:</p>
+<p>Bias mede o quanto o modelo erra por assumir uma forma muito simples.</p>
 
 <ul>
-<li>Diminuir o bias geralmente aumenta a variância</li>
-<li>Diminuir a variância geralmente aumenta o bias</li>
+<li>Modelos simples → alto bias</li>
+<li>Dificuldade em capturar padrões complexos</li>
 </ul>
 
-<p>O objetivo é encontrar um ponto intermediário.</p>
+---
 
-<h3>8º - Relação com Risco Empírico</h3>
+<h3>4º - Variance (Variância)</h3>
 
-<p>Minimizar apenas o risco empírico pode levar a overfitting.</p>
-
-<p>Modelos muito complexos reduzem o erro no treino, mas aumentam a variância.</p>
-
-<p>Por isso, precisamos controlar a complexidade do modelo.</p>
-
-<h3>9º - Como Controlar</h3>
+<p>Variance mede o quanto o modelo muda com pequenas variações nos dados.</p>
 
 <ul>
-<li><strong>Regularização:</strong> penaliza modelos complexos</li>
-<li><strong>Mais dados:</strong> reduz variância</li>
-<li><strong>Validação cruzada:</strong> ajuda na escolha do modelo</li>
-<li><strong>Escolha do modelo:</strong> ajustar complexidade adequada</li>
+<li>Modelos complexos → alta variância</li>
+<li>Sensíveis ao conjunto de treino</li>
 </ul>
 
-<h3>10º - Conclusão</h3>
+---
 
-<p>O trade-off entre bias e variância é central em Machine Learning.<br>
-Modelos bons equilibram simplicidade e capacidade de generalização,<br>
-evitando tanto underfitting quanto overfitting.</p>
+<h3>5º - Relação com o ajuste do modelo</h3>
+
+<ul>
+<li>Alto bias → modelo rígido</li>
+<li>Alta variância → modelo instável</li>
+</ul>
+
+<p>Existe um trade-off entre esses dois fatores.</p>
+
+---
+
+<h3>6º - Trade-off Bias vs Variance</h3>
+
+<ul>
+<li>Reduzir bias tende a aumentar variância</li>
+<li>Reduzir variância tende a aumentar bias</li>
+</ul>
+
+<p>O objetivo é equilibrar os dois.</p>
+
+---
+
+<h3>7º - Implicação prática</h3>
+
+<p>Modelos eficazes são aqueles que:</p>
+
+<ul>
+<li>Não são simples demais</li>
+<li>Nem complexos demais</li>
+</ul>
+
+---
+
+<h3>8º - Conclusão</h3>
+
+<p>Bias e variância explicam por que modelos erram.</p>
+
+<p>Controlar esse equilíbrio é essencial para obter boa generalização.</p>
 
 </main>
 

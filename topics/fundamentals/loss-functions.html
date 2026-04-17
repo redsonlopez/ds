@@ -20,52 +20,26 @@
 
 <main>
 
-<h2>Funções de Perda (Loss Functions)</h2>
+<h2>Funções de Perda</h2>
 
-<h3>1º - O Problema: Como medir o erro?</h3>
+<h3>1º - O papel da função de perda</h3>
 
-<p>Ao treinar um modelo, precisamos responder uma pergunta central:</p>
+<p>A função de perda define como o erro é medido para uma única previsão.</p>
 
-<p><strong>Quão errado o modelo está?</strong></p>
+<p class="equation">\( L(y, \hat{y}) \)</p>
 
-<p>Para isso, utilizamos uma <strong>função de perda</strong>, que mede a diferença entre:</p>
-
-<ul>
-<li>valor real</li>
-<li>valor previsto pelo modelo</li>
-</ul>
+<p>Escolher a função de perda define o comportamento do modelo.</p>
 
 ---
 
-<h3>2º - Definição</h3>
-
-<p>Uma função de perda recebe como entrada:</p>
-
-<ul>
-<li>\(y\): valor real</li>
-<li>\(\hat{y}\): valor previsto</li>
-</ul>
-
-<p>E retorna um número que representa o erro:</p>
-
-<p class="equation">\(
-L(y, \hat{y})
-\)</p>
-
-<p>O objetivo do modelo é minimizar essa função.</p>
-
----
-
-<h3>3º - Mean Squared Error (MSE)</h3>
-
-<p>Uma das funções mais utilizadas em regressão.</p>
+<h3>2º - Mean Squared Error (MSE)</h3>
 
 <p class="equation">\(
 MSE = \frac{1}{n} \sum (y_i - \hat{y}_i)^2
 \)</p>
 
 <ul>
-<li>Penaliza erros maiores com mais intensidade</li>
+<li>Penaliza erros grandes com mais intensidade</li>
 <li>Sensível a outliers</li>
 </ul>
 
@@ -74,107 +48,51 @@ Erros grandes são "amplificados" pelo quadrado.</p>
 
 ---
 
-<h3>4º - Mean Absolute Error (MAE)</h3>
-
-<p>Outra função comum em regressão.</p>
+<h3>3º - Mean Absolute Error (MAE)</h3>
 
 <p class="equation">\(
 MAE = \frac{1}{n} \sum |y_i - \hat{y}_i|
 \)</p>
 
 <ul>
-<li>Trata todos os erros de forma linear</li>
+<li>Trata erros de forma linear</li>
 <li>Mais robusta a outliers</li>
 </ul>
 
-<p><strong>Intuição:</strong><br>
-Cada erro contribui proporcionalmente.</p>
-
 ---
 
-<h3>5º - Comparação: MSE vs MAE</h3>
-
-<table>
-<thead>
-<tr>
-<th>Função</th>
-<th>Comportamento</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>MSE</td><td>Penaliza mais erros grandes</td></tr>
-<tr><td>MAE</td><td>Mais robusta a outliers</td></tr>
-</tbody>
-</table>
-
----
-
-<h3>6º - Log Loss (Binary Cross-Entropy)</h3>
+<h3>4º - Log Loss (Binary Cross-Entropy)</h3>
 
 <p>Usada em problemas de classificação binária.</p>
-
-<p>O modelo prevê probabilidades \(p\):</p>
 
 <p class="equation">\(
 L = - \frac{1}{n} \sum \left[ y_i \log(p_i) + (1 - y_i)\log(1 - p_i) \right]
 \)</p>
 
 <ul>
-<li>Pune previsões confiantes e erradas com intensidade</li>
-<li>Recompensa previsões corretas com alta confiança</li>
+<li>Pune previsões confiantes e erradas</li>
+<li>Baseada em probabilidade</li>
 </ul>
 
-<p><strong>Intuição:</strong><br>
-Errar com "certeza" é pior do que errar com dúvida.</p>
-
 ---
 
-<h3>7º - Relação com Probabilidade</h3>
-
-<p>A Log Loss está ligada ao conceito de <strong>máxima verossimilhança</strong>.</p>
-
-<p>Minimizar a perda equivale a maximizar a probabilidade dos dados observados.</p>
-
----
-
-<h3>8º - Função de perda vs Função objetivo</h3>
-
-<p>Na prática, o que minimizamos é:</p>
-
-<p class="equation">\(
-R_{emp} = \frac{1}{n} \sum L(y_i, \hat{y}_i)
-\)</p>
-
-<p>Ou seja, o erro médio sobre o conjunto de dados.</p>
-
----
-
-<h3>9º - Escolha da função de perda</h3>
+<h3>5º - Interpretação</h3>
 
 <ul>
-<li>Regressão → MSE ou MAE</li>
-<li>Classificação → Log Loss</li>
+<li>MSE → prioriza grandes erros</li>
+<li>MAE → mais estável</li>
+<li>Log Loss → avalia probabilidades</li>
 </ul>
-
-<p>A escolha da função de perda define o comportamento do modelo.</p>
 
 ---
 
-<h3>10º - Conclusão</h3>
+<h3>6º - Conclusão</h3>
 
-<p>A função de perda é o coração do aprendizado.</p>
+<p>A função de perda define o que significa “errar” e influencia diretamente o comportamento do modelo.</p>
 
-<ul>
-<li>Define o que significa "errar"</li>
-<li>Guia o processo de otimização</li>
-<li>Impacta diretamente o resultado final</li>
-</ul>
-
-<p>Escolher a função correta é tão importante quanto escolher o modelo.</p>
-
-  <site-footer
-    prev="ml/01_fundamentals/01_empirical_risk.html"
-    next="ml/01_fundamentals/02_bias_variance.html">
+<site-footer
+    prev="topics/fundamentals/empirical-risk.html"
+    next="topics/fundamentals/bias-variance.html">
   </site-footer>
 
 </main>
