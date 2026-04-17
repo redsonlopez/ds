@@ -3,7 +3,11 @@ class SiteSidebar extends HTMLElement {
 
     this.innerHTML = `
       <nav>
-        <!--
+        <h2>Modelos Base</h2>
+        <a href="topics/models/regression/simple-linear.html">Regressão Linear</a>
+        <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
+        <a href="topics/models/neural-networks/perceptron.html">Redes Neurais (Perceptron)</a>
+
         <h2>Fundamentos</h2>
         <a href="topics/fundamentals/empirical-risk.html">Risco Empírico</a>
         <a href="topics/fundamentals/loss-functions.html">Funções de Perda</a>
@@ -11,6 +15,7 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/fundamentals/overfitting-underfitting.html">Overfitting e Underfitting</a>
         <a href="topics/fundamentals/regularization.html">Regularização</a>
 
+        <!--
         <h2>Processo de Aprendizado</h2>
         <a href="topics/learning-process/optimization/gradient-descent.html">Gradiente Descendente</a>
         <a href="topics/learning-process/optimization/learning-rate.html">Learning Rate</a>
@@ -20,12 +25,12 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/learning-process/evaluation/train-test-split.html">Train/Test Split</a>
         <a href="topics/learning-process/evaluation/cross-validation.html">Validação Cruzada</a>
         <a href="topics/learning-process/evaluation/metrics.html">Métricas</a>
-
-        <h2>Regressão</h2>
         -->
+
         <h2>Modelos</h2>
-        <a href="topics/models/regression/simple-linear.html">Regressão Linear Simples</a>
+
         <!--
+        <h2>Regressão</h2>
         <a href="topics/models/regression/multiple-linear.html">Regressão Linear Múltipla</a>
         <a href="topics/models/regression/polynomial-regression.html">Regressão Polinomial</a>
 
@@ -43,10 +48,9 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/models/neighbors/knn-regression.html">KNN Regressão</a>
 
         <h2>Árvores</h2>
-        -->
-        <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
+        <a href="topics/models/tree-based/random-forest.html">Random Forest</a>
+        <a href="topics/models/tree-based/gradient-boosting.html">Gradient Boosting</a>
 
-        <!--
         <h2>Ensemble</h2>
         <a href="topics/ensemble-methods/bagging.html">Bagging</a>
         <a href="topics/ensemble-methods/random-forest.html">Random Forest</a>
@@ -59,7 +63,6 @@ class SiteSidebar extends HTMLElement {
 
         <!--
         <h2>Redes Neurais</h2>
-        <a href="topics/models/neural-networks/perceptron.html">Perceptron</a>
         <a href="topics/models/neural-networks/mlp.html">MLP</a>
         <a href="topics/models/neural-networks/activation-functions.html">Funções de Ativação</a>
         <a href="topics/models/neural-networks/backpropagation.html">Backpropagation</a>
