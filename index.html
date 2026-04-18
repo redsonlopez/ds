@@ -19,31 +19,22 @@
 
     <main>
 
-      <h1>Fundamentos de Machine Learning</h1>
+      <h1>Inteligência Artificial e Aprendizado de Máquina</h1>
 
-      <h3>O que é Inteligência Artificial?</h3>
+<h3>O que é Inteligência Artificial?</h3>
 
-<p>Inteligência Artificial (IA) busca criar sistemas capazes de realizar tarefas que normalmente exigiriam inteligência humana.</p>
+<p>
+Inteligência Artificial (IA) busca criar sistemas capazes de realizar tarefas que normalmente exigiriam inteligência humana, como reconhecimento de padrões, tomada de decisão e previsão de resultados.
+</p>
 
-<p>Isso inclui:</p>
-
-<ul>
-<li>reconhecimento de padrões</li>
-<li>tomada de decisão</li>
-<li>previsão de resultados</li>
-</ul>
-
-<p>Existem diferentes formas de construir esses sistemas.</p>
-
-<p>Uma abordagem tradicional é definir regras manualmente.</p>
-
-<p><strong>Machine Learning segue um caminho diferente:</strong></p>
-
-<p>em vez de programar regras, o sistema aprende essas regras a partir de dados.</p>
+<p>
+Existem diferentes formas de construir esses sistemas. Uma abordagem tradicional consiste em definir regras manualmente. Por exemplo, usando estruturas condicionais como <code>if</code> e <code>else</code> para decidir o comportamento do sistema em cada situação.
+Já o <strong>Aprendizado de Máquina</strong> segue um caminho diferente: em vez de programar regras explicitamente, o sistema aprende essas regras a partir de dados.
+</p>
 
 ---
 
-<h3>Como o Machine Learning funciona?</h3>
+<h3>Como o Aprendizado de Máquina (Machine Learning) funciona?</h3>
 
 <p>O aprendizado de máquina consiste em aprender uma relação entre entradas e saídas.</p>
 
@@ -62,24 +53,8 @@ x \rightarrow y
 \hat{y} = f(x)
 \)</p>
 
----
-
-<h3>Indução de hipótese</h3>
-
-<p>Esse processo pode ser entendido como <strong>indução de hipóteses</strong>.</p>
-
-<p>Ou seja:</p>
-
-<ul>
-<li>observamos exemplos</li>
-<li>inferimos uma regra geral</li>
-</ul>
-
-<p>Chamamos essa regra de <strong>hipótese</strong>:</p>
-
-<p class="equation">\(
-h(x)
-\)</p>
+<p>
+Aprender, nesse contexto, é um processo de <strong>indução de hipóteses</strong>. A partir de exemplos observados, o sistema busca inferir uma regra geral, chamada de <strong>hipótese</strong>, que pode ser representada por \(h(x)\).</p>
 
 <p>O modelo escolhe, entre várias possíveis funções, aquela que melhor explica os dados.</p>
 
@@ -87,9 +62,11 @@ h(x)
 
 <h3>Espaço de hipóteses</h3>
 
-<p>Não buscamos qualquer função possível, mas sim dentro de um conjunto limitado.</p>
+<p>
+Não buscamos qualquer função possível, mas sim dentro de um conjunto limitado chamado <strong>espaço de hipóteses</strong>. Esse espaço define quais tipos de funções o modelo pode considerar.
+</p>
 
-<p>Esse conjunto é chamado de <strong>espaço de hipóteses</strong>.</p>
+<p>Exemplos:</p>
 
 <ul>
 <li>funções lineares</li>
@@ -103,38 +80,37 @@ h(x)
 
 <h3>Como escolher a melhor hipótese?</h3>
 
-<p>Precisamos de um critério para avaliar quão boa uma hipótese é.</p>
-
-<p>Isso é feito medindo o erro entre:</p>
-
-<ul>
-<li>valor real</li>
-<li>valor previsto</li>
-</ul>
-
-<p>O modelo ajusta seus parâmetros para minimizar esse erro.</p>
+<p>
+Para determinar qual hipótese é melhor, é necessário um critério de avaliação. Isso é feito medindo o erro entre o valor real e o valor previsto pelo modelo. Com base nesse erro, o algoritmo ajusta seus parâmetros para encontrar a função que minimiza essa diferença.
+</p>
 
 ---
 
 <h3>Generalização</h3>
 
-<p>O objetivo não é apenas ir bem nos dados observados.</p>
-
-<p>Queremos que o modelo funcione bem em dados novos.</p>
-
-<p>Isso é chamado de <strong>generalização</strong>.</p>
+<p>
+O objetivo não é apenas obter bom desempenho nos dados observados durante o treinamento, mas sim garantir que o modelo funcione bem em dados novos e desconhecidos. Essa capacidade é chamada de <strong>generalização</strong> e é fundamental para que o modelo seja útil na prática.
+</p>
 
 ---
 
 <h3>Resumo do processo</h3>
 
+<p>
+O fluxo básico de Machine Learning pode ser entendido como um ciclo:
+</p>
+
 <ul>
-<li>definir um espaço de hipóteses</li>
-<li>usar dados para escolher a melhor hipótese</li>
-<li>garantir que ela generalize para novos dados</li>
+  <li>coletar dados</li>
+  <li>definir o modelo (espaço de hipóteses)</li>
+  <li>medir o erro</li>
+  <li>ajustar os parâmetros</li>
+  <li>avaliar o desempenho</li>
 </ul>
 
-<p>Esse processo conecta todos os conceitos que serão estudados a seguir.</p>
+<p>
+Esse processo conecta os principais conceitos e serve como base para os tópicos a seguir.
+</p>
 
     </main>
 

@@ -3,7 +3,7 @@ class SiteSidebar extends HTMLElement {
 
     this.innerHTML = `
       <nav>
-        <a href="/">Fundamentos de Machine Learning</a>
+        <a href="/">Inteligência Artificial e Aprendizado de Máquina</a>
 
         <h2>Modelos Base</h2>
         <a href="topics/models/regression/simple-linear.html">Regressão Linear</a>
