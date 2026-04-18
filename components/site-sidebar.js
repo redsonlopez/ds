@@ -3,6 +3,8 @@ class SiteSidebar extends HTMLElement {
 
     this.innerHTML = `
       <nav>
+        <a href="/">Fundamentos de Machine Learning</a>
+
         <h2>Modelos Base</h2>
         <a href="topics/models/regression/simple-linear.html">Regressão Linear</a>
         <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
