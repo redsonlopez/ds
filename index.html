@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,105 +15,107 @@
   </head>
 
   <body>
+
     <site-sidebar></site-sidebar>
 
     <main>
 
-      <h1>Inteligência Artificial e Aprendizado de Máquina</h1>
+      <h2>Inteligência Artificial e Aprendizado de Máquina</h2>
 
-<h3>O que é Inteligência Artificial?</h3>
+      <h3>O que é Inteligência Artificial?</h3>
 
-<p>
-Inteligência Artificial busca criar sistemas capazes de realizar tarefas que normalmente exigiriam inteligência humana, como reconhecimento de padrões, tomada de decisão e previsão de resultados.
-</p>
+      <p>
+      Inteligência Artificial busca criar sistemas capazes de realizar tarefas que normalmente exigiriam inteligência humana, como reconhecimento de padrões, tomada de decisão e previsão de resultados.
+      </p>
 
-<p>
-Uma das abordagens tradicionais consiste em definir regras manualmente usando estruturas condicionais como 'if/else' para decidir o comportamento do sistema em cada situação.<br>
-Já o <strong>Aprendizado de Máquina</strong> segue um caminho diferente: em vez de programar regras explicitamente, o sistema aprende essas regras a partir de dados.
-</p>
+      <p>
+      Uma das abordagens tradicionais consiste em definir regras manualmente usando estruturas condicionais como 'if/else' para decidir o comportamento do sistema em cada situação.<br>
+      Já o <strong>Aprendizado de Máquina</strong> segue um caminho diferente: em vez de programar regras explicitamente, o sistema aprende essas regras a partir de dados.
+      </p>
 
----
+      ---
 
-<h3>Como o Aprendizado de Máquina (Machine Learning) funciona?</h3>
+      <h3>Como o Aprendizado de Máquina (Machine Learning) funciona?</h3>
 
-<p>
-O aprendizado de máquina consiste em aprender padrões a partir de dados.<br>
-Em muitos casos, isso envolve aprender uma relação entre entradas e saídas.
-</p>
+      <p>
+      O aprendizado de máquina consiste em aprender padrões a partir de dados.<br>
+      Em muitos casos, isso envolve aprender uma relação entre entradas e saídas.
+      </p>
 
-<p class="equation">\(
-x \rightarrow y
-\)</p>
+      <p class="equation">\(
+      x \rightarrow y
+      \)</p>
 
-<ul>
-<li>\(x\): dados de entrada (features)</li>
-<li>\(y\): saída desejada (target)</li>
-</ul>
+      <ul>
+      <li>\(x\): dados de entrada (features)</li>
+      <li>\(y\): saída desejada (target)</li>
+      </ul>
 
-<p>O objetivo é encontrar uma função que produza boas previsões:</p>
+      <p>O objetivo é encontrar uma função que produza boas previsões:</p>
 
-<p class="equation">\(
-\hat{y} = f(x)
-\)</p>
+      <p class="equation">\(
+      \hat{y} = f(x)
+      \)</p>
 
-<p>
-Aprender, nesse contexto, é um processo de <strong>indução de hipóteses</strong>. A partir de exemplos observados, o sistema busca inferir uma regra geral, chamada de <strong>hipótese</strong>, que pode ser representada por \(h(x)\).</p>
+      <p>
+      Aprender, nesse contexto, é um processo de <strong>indução de hipóteses</strong>. A partir de exemplos observados, o sistema busca inferir uma regra geral, chamada de <strong>hipótese</strong>, que pode ser representada por \(h(x)\).
+      </p>
 
-<p>O modelo escolhe, entre várias possíveis funções, aquela que melhor explica os dados.</p>
+      <p>O modelo escolhe, entre várias possíveis funções, aquela que melhor explica os dados.</p>
 
----
+      ---
 
-<h3>Espaço de hipóteses</h3>
+      <h3>Espaço de hipóteses</h3>
 
-<p>
-Não buscamos qualquer função possível, mas sim dentro de um conjunto limitado chamado <strong>espaço de hipóteses</strong>. Esse espaço define quais tipos de funções o modelo pode considerar.
-</p>
+      <p>
+      Não buscamos qualquer função possível, mas sim dentro de um conjunto limitado chamado <strong>espaço de hipóteses</strong>. Esse espaço define quais tipos de funções o modelo pode considerar.
+      </p>
 
-<p>Exemplos:</p>
+      <p>Exemplos:</p>
 
-<ul>
-<li>funções lineares</li>
-<li>árvores de decisão</li>
-<li>redes neurais</li>
-</ul>
+      <ul>
+      <li>funções lineares</li>
+      <li>árvores de decisão</li>
+      <li>redes neurais</li>
+      </ul>
 
-<p>Escolher o modelo significa escolher esse espaço.</p>
+      <p>Escolher o modelo significa escolher esse espaço.</p>
 
----
+      ---
 
-<h3>Como escolher a melhor hipótese?</h3>
+      <h3>Como escolher a melhor hipótese?</h3>
 
-<p>
-Para determinar qual hipótese é melhor, é necessário um critério de avaliação. Isso é feito medindo o erro entre o valor real e o valor previsto pelo modelo. Com base nesse erro, o algoritmo ajusta seus parâmetros para encontrar a função que minimiza essa diferença.
-</p>
+      <p>
+      Para determinar qual hipótese é melhor, é necessário um critério de avaliação. Isso é feito medindo o erro entre o valor real e o valor previsto pelo modelo. Com base nesse erro, o algoritmo ajusta seus parâmetros para encontrar a função que minimiza essa diferença.
+      </p>
 
----
+      ---
 
-<h3>Generalização</h3>
+      <h3>Generalização</h3>
 
-<p>
-O objetivo não é apenas obter bom desempenho nos dados observados durante o treinamento, mas sim garantir que o modelo funcione bem em dados novos e desconhecidos. Essa capacidade é chamada de <strong>generalização</strong> e é fundamental para que o modelo seja útil na prática.
-</p>
+      <p>
+      O objetivo não é apenas obter bom desempenho nos dados observados durante o treinamento, mas sim garantir que o modelo funcione bem em dados novos e desconhecidos. Essa capacidade é chamada de <strong>generalização</strong> e é fundamental para que o modelo seja útil na prática.
+      </p>
 
----
+      ---
 
-<h3>Resumo do processo</h3>
+      <h3>Resumo do processo</h3>
 
-<p>
-O fluxo básico de Machine Learning pode ser entendido como um ciclo:
-</p>
+      <p>
+      O fluxo básico de Machine Learning pode ser entendido como um ciclo:
+      </p>
 
-<ul>
-  <li>coletar dados</li>
-  <li>definir o modelo (espaço de hipóteses)</li>
-  <li>medir o erro</li>
-  <li>ajustar os parâmetros</li>
-  <li>avaliar o desempenho</li>
-</ul>
+      <ul>
+        <li>coletar dados</li>
+        <li>definir o modelo (espaço de hipóteses)</li>
+        <li>medir o erro</li>
+        <li>ajustar os parâmetros</li>
+        <li>avaliar o desempenho</li>
+      </ul>
 
-<p>
-Esse processo conecta os principais conceitos e serve como base para os tópicos a seguir.
-</p>
+      <p>
+      Esse processo conecta os principais conceitos e serve como base para os tópicos a seguir.
+      </p>
 
     </main>
 
