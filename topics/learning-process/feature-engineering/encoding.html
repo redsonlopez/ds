@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Codificação de Variáveis</title>
+
+    <script src="../../../components/base.js"></script>
+    <script src="components/site-sidebar.js" defer></script>
+    <script src="components/site-footer.js" defer></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+
+    <site-sidebar></site-sidebar>
+
+<main>
+
+<h2>Codificação de Variáveis (Feature Encoding)</h2>
+
+<h3>1º - O Problema: Dados não numéricos</h3>
+
+<p>Muitos modelos de Machine Learning trabalham apenas com valores numéricos.</p>
+
+<p>Porém, datasets frequentemente contêm variáveis categóricas, como:</p>
+
+<ul>
+<li>cores</li>
+<li>nomes de cidades</li>
+<li>tipos de produto</li>
+</ul>
+
+<p>Esses valores precisam ser transformados em números.</p>
+
+---
+
+<h3>2º - O objetivo da codificação</h3>
+
+<p>A codificação transforma categorias em representações numéricas.</p>
+
+<p>O desafio é fazer isso sem introduzir relações incorretas entre os dados.</p>
+
+---
+
+<h3>3º - Label Encoding</h3>
+
+<p>Cada categoria recebe um número inteiro:</p>
+
+<ul>
+<li>vermelho → 0</li>
+<li>azul → 1</li>
+<li>verde → 2</li>
+</ul>
+
+<p><strong>Problema:</strong><br>
+Isso pode induzir uma ordem artificial entre categorias.</p>
+
+<p>Exemplo incorreto:</p>
+<p>verde > azul > vermelho</p>
+
+---
+
+<h3>4º - Quando usar Label Encoding</h3>
+
+<ul>
+<li>quando existe ordem natural (ex: baixo, médio, alto)</li>
+<li>em modelos baseados em árvores (menos sensíveis a isso)</li>
+</ul>
+
+---
+
+<h3>5º - One-Hot Encoding</h3>
+
+<p>Cria uma coluna para cada categoria:</p>
+
+<table>
+<thead>
+<tr>
+<th>Cor</th>
+<th>Vermelho</th>
+<th>Azul</th>
+<th>Verde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vermelho</td><td>1</td><td>0</td><td>0</td>
+</tr>
+<tr>
+<td>Azul</td><td>0</td><td>1</td><td>0</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>não cria ordem artificial</li>
+<li>preserva independência entre categorias</li>
+</ul>
+
+---
+
+<h3>6º - Problema da alta dimensionalidade</h3>
+
+<p>Se houver muitas categorias:</p>
+
+<ul>
+<li>o número de colunas cresce muito</li>
+<li>o modelo pode ficar mais lento</li>
+</ul>
+
+<p>Isso é conhecido como <strong>explosão de dimensionalidade</strong>.</p>
+
+---
+
+<h3>7º - Outras abordagens</h3>
+
+<ul>
+<li><strong>Target Encoding:</strong> usa estatísticas do alvo</li>
+<li><strong>Embedding:</strong> representação densa aprendida (redes neurais)</li>
+</ul>
+
+<p>Essas técnicas são mais avançadas e dependem do contexto.</p>
+
+---
+
+<h3>8º - Boa prática</h3>
+
+<p>A codificação deve ser ajustada apenas com dados de treino.</p>
+
+<p>Depois, aplicada aos dados de teste.</p>
+
+<p>Isso evita vazamento de informação.</p>
+
+---
+
+<h3>9º - Interpretação</h3>
+
+<ul>
+<li>a codificação define como o modelo "enxerga" categorias</li>
+<li>uma escolha ruim pode prejudicar o aprendizado</li>
+</ul>
+
+---
+
+<h3>10º - Conclusão</h3>
+
+<p>Codificação de variáveis é uma etapa fundamental do pré-processamento.</p>
+
+<p>Escolher a técnica correta garante que o modelo interprete os dados de forma adequada.</p>
+
+</main>
+
+</body>
+</html>
+

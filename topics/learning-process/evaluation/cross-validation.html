@@ -22,40 +22,32 @@
 
 <h2>Validação Cruzada (Cross Validation)</h2>
 
-<h3>1º - O Problema: Avaliação instável</h3>
+<h3>1º - Limitação do Train/Test Split</h3>
 
-<p>Ao dividir os dados em treino e teste, o resultado pode depender muito da divisão escolhida.</p>
+<p>Uma única divisão dos dados pode não representar bem o desempenho real do modelo.</p>
 
-<p>Isso gera um problema:</p>
-
-<p><strong>A avaliação do modelo pode variar bastante.</strong></p>
-
-<p>Uma única divisão pode não representar bem o desempenho real.</p>
+<p>O resultado pode variar dependendo de como os dados foram separados.</p>
 
 ---
 
 <h3>2º - Ideia da Validação Cruzada</h3>
 
-<p>A validação cruzada resolve isso utilizando múltiplas divisões dos dados.</p>
+<p>Em vez de usar uma única divisão, avaliamos o modelo em várias divisões diferentes.</p>
 
-<p>Em vez de treinar e testar uma única vez, o modelo é avaliado várias vezes.</p>
-
-<p>O resultado final é a média dos desempenhos.</p>
+<p>O desempenho final é a média dos resultados.</p>
 
 ---
 
 <h3>3º - K-Fold Cross Validation</h3>
 
-<p>O método mais comum é o <strong>K-Fold</strong>.</p>
-
-<p>O conjunto de dados é dividido em \(K\) partes (folds):</p>
+<p>O dataset é dividido em \(K\) partes (folds):</p>
 
 <ul>
 <li>Treinamos em \(K - 1\) partes</li>
 <li>Testamos na parte restante</li>
 </ul>
 
-<p>Esse processo é repetido \(K\) vezes, trocando o conjunto de teste.</p>
+<p>Repetimos o processo \(K\) vezes.</p>
 
 <p class="equation">\(
 Resultado = \frac{1}{K} \sum_{i=1}^{K} desempenho_i
@@ -63,65 +55,32 @@ Resultado = \frac{1}{K} \sum_{i=1}^{K} desempenho_i
 
 ---
 
-<h3>4º - Exemplo (K = 5)</h3>
-
-<table>
-<thead>
-<tr>
-<th>Iteração</th>
-<th>Treino</th>
-<th>Teste</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>Folds 2-5</td><td>Fold 1</td></tr>
-<tr><td>2</td><td>Folds 1,3,4,5</td><td>Fold 2</td></tr>
-<tr><td>3</td><td>Folds 1,2,4,5</td><td>Fold 3</td></tr>
-<tr><td>4</td><td>Folds 1-3,5</td><td>Fold 4</td></tr>
-<tr><td>5</td><td>Folds 1-4</td><td>Fold 5</td></tr>
-</tbody>
-</table>
-
----
-
-<h3>5º - Vantagens</h3>
+<h3>4º - Intuição</h3>
 
 <ul>
-<li>Reduz a variância da avaliação</li>
-<li>Utiliza melhor os dados disponíveis</li>
-<li>Fornece estimativa mais confiável</li>
+<li>Cada dado é usado para treino e teste</li>
+<li>Reduz dependência de uma única divisão</li>
 </ul>
 
 ---
 
-<h3>6º - Desvantagens</h3>
+<h3>5º - Escolha de K</h3>
 
 <ul>
-<li>Maior custo computacional</li>
-<li>Treinamento repetido várias vezes</li>
+<li>\(K = 5\) ou \(K = 10\) são comuns</li>
+<li>K maior → avaliação mais estável</li>
+<li>K menor → menor custo computacional</li>
 </ul>
 
 ---
 
-<h3>7º - Escolha de K</h3>
+<h3>6º - Variação: Stratified K-Fold</h3>
 
-<ul>
-<li>\(K = 5\) ou \(K = 10\) são os mais comuns</li>
-<li>\(K\) pequeno → mais rápido, menos preciso</li>
-<li>\(K\) grande → mais preciso, mais lento</li>
-</ul>
+<p>Em classificação, mantemos a proporção das classes em cada divisão.</p>
 
 ---
 
-<h3>8º - Stratified K-Fold</h3>
-
-<p>Em problemas de classificação, é importante manter a proporção das classes.</p>
-
-<p>O <strong>Stratified K-Fold</strong> garante que cada fold tenha distribuição semelhante das classes.</p>
-
----
-
-<h3>9º - Quando usar</h3>
+<h3>7º - Quando usar</h3>
 
 <ul>
 <li>Datasets pequenos ou médios</li>
@@ -129,19 +88,19 @@ Resultado = \frac{1}{K} \sum_{i=1}^{K} desempenho_i
 <li>Ajuste de hiperparâmetros</li>
 </ul>
 
-<p>Para datasets muito grandes, uma divisão simples pode ser suficiente.</p>
+---
+
+<h3>8º - Limitação</h3>
+
+<ul>
+<li>Custo computacional maior</li>
+</ul>
 
 ---
 
-<h3>10º - Conclusão</h3>
+<h3>9º - Conclusão</h3>
 
-<p>A validação cruzada fornece uma estimativa mais robusta do desempenho do modelo.</p>
-
-<ul>
-<li>Evita dependência de uma única divisão</li>
-<li>Melhora a confiabilidade dos resultados</li>
-<li>É padrão em avaliação de modelos</li>
-</ul>
+<p>A validação cruzada fornece uma estimativa mais robusta do desempenho do modelo do que uma única divisão.</p>
 
 </main>
 

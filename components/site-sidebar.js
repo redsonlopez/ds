@@ -6,26 +6,26 @@ class SiteSidebar extends HTMLElement {
         <h2>Modelos Base</h2>
         <a href="topics/models/regression/simple-linear.html">Regressão Linear</a>
         <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
-        <a href="topics/models/neural-networks/perceptron.html">Redes Neurais (Perceptron)</a>
+        <a href="topics/models/neural-networks/perceptron.html">Perceptron (Redes Neurais)</a>
 
         <h2>Fundamentos</h2>
         <a href="topics/fundamentals/empirical-risk.html">Risco Empírico</a>
         <a href="topics/fundamentals/loss-functions.html">Funções de Perda</a>
-        <a href="topics/fundamentals/bias-variance.html">Bias vs Variance</a>
         <a href="topics/fundamentals/overfitting-underfitting.html">Overfitting e Underfitting</a>
+        <a href="topics/fundamentals/bias-variance.html">Bias vs Variance</a>
         <a href="topics/fundamentals/regularization.html">Regularização</a>
 
-        <!--
         <h2>Processo de Aprendizado</h2>
-        <a href="topics/learning-process/optimization/gradient-descent.html">Gradiente Descendente</a>
-        <a href="topics/learning-process/optimization/learning-rate.html">Learning Rate</a>
-
-        <a href="topics/learning-process/feature-engineering/scaling-normalization.html">Escalonamento</a>
-
         <a href="topics/learning-process/evaluation/train-test-split.html">Train/Test Split</a>
         <a href="topics/learning-process/evaluation/cross-validation.html">Validação Cruzada</a>
         <a href="topics/learning-process/evaluation/metrics.html">Métricas</a>
-        -->
+
+        <a href="topics/learning-process/optimization/gradient-descent.html">Gradiente Descendente</a>
+        <a href="topics/learning-process/optimization/learning-rate.html">Learning Rate</a>
+
+        <a href="topics/learning-process/feature-engineering/feature-engineering.html">Engenharia de Recursos</a>
+        <a href="topics/learning-process/feature-engineering/scaling-normalization.html">Escalonamento</a>
+        <a href="topics/learning-process/feature-engineering/encoding.html">Codificação</a>
 
         <h2>Modelos</h2>
 

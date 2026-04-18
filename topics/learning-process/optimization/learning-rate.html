@@ -22,159 +22,104 @@
 
 <h2>Taxa de Aprendizado (Learning Rate)</h2>
 
-<h3>1º - O Problema: Como atualizar os parâmetros?</h3>
+<h3>1º - O papel da taxa de aprendizado</h3>
 
-<p>No Gradiente Descendente, atualizamos os parâmetros do modelo iterativamente.</p>
-
-<p>A regra geral é:</p>
+<p>No gradiente descendente, atualizamos os parâmetros iterativamente:</p>
 
 <p class="equation">\(
-\theta := \theta - \eta \cdot \nabla R_{emp}(\theta)
+\theta := \theta - \eta \cdot \nabla J(\theta)
 \)</p>
 
-<ul>
-<li>\(\theta\): parâmetros do modelo</li>
-<li>\(\nabla R_{emp}(\theta)\): gradiente (direção do erro)</li>
-<li>\(\eta\): taxa de aprendizado (<strong>learning rate</strong>)</li>
-</ul>
-
-<p>A taxa de aprendizado controla <strong>o tamanho do passo</strong> dado a cada atualização.</p>
+<p>A taxa de aprendizado \(\eta\) controla o tamanho do passo.</p>
 
 ---
 
 <h3>2º - Intuição</h3>
 
-<p>Imagine que queremos descer uma montanha até o ponto mais baixo.</p>
+<p>Imagine descer uma montanha:</p>
 
 <ul>
-<li>Passos pequenos → descida lenta, mas segura</li>
-<li>Passos grandes → descida rápida, mas arriscada</li>
+<li>passos pequenos → progresso lento</li>
+<li>passos grandes → risco de erro</li>
 </ul>
 
-<p>A taxa de aprendizado define o tamanho desses passos.</p>
+<p>A taxa de aprendizado define esse equilíbrio.</p>
 
 ---
 
-<h3>3º - Learning rate muito pequeno</h3>
+<h3>3º - Taxa muito pequena</h3>
 
 <ul>
-<li>Convergência muito lenta</li>
-<li>Alto custo computacional</li>
-<li>Pode ficar preso em regiões pouco relevantes</li>
-</ul>
-
-<p>O modelo aprende, mas demora muito.</p>
-
----
-
-<h3>4º - Learning rate muito grande</h3>
-
-<ul>
-<li>Pode "pular" o mínimo</li>
-<li>Pode oscilar sem convergir</li>
-<li>Pode divergir completamente</li>
-</ul>
-
-<p>O modelo não consegue estabilizar.</p>
-
----
-
-<h3>5º - Exemplo ilustrativo</h3>
-
-<p>Considere uma função simples de erro:</p>
-
-<p class="equation">\(
-f(x) = x^2
-\)</p>
-
-<p>Gradiente:</p>
-
-<p class="equation">\(
-\frac{df}{dx} = 2x
-\)</p>
-
-<p>Atualização:</p>
-
-<p class="equation">\(
-x := x - \eta \cdot 2x
-\)</p>
-
-<ul>
-<li>\(\eta\) pequeno → aproxima lentamente de 0</li>
-<li>\(\eta\) grande → pode oscilar ou divergir</li>
+<li>aprendizado lento</li>
+<li>alto custo computacional</li>
+<li>pode parar antes de atingir o mínimo ideal</li>
 </ul>
 
 ---
 
-<h3>6º - Trade-off</h3>
-
-<p>Escolher \(\eta\) envolve um equilíbrio:</p>
+<h3>4º - Taxa muito grande</h3>
 
 <ul>
-<li>Velocidade de aprendizado</li>
-<li>Estabilidade da convergência</li>
-</ul>
-
-<p>Não existe um valor universal ideal.</p>
-
----
-
-<h3>7º - Estratégias comuns</h3>
-
-<ul>
-<li>Usar valores pequenos (ex: 0.01, 0.001)</li>
-<li>Testar diferentes valores (tuning)</li>
-<li>Reduzir a taxa ao longo do tempo</li>
+<li>pode ultrapassar o mínimo</li>
+<li>pode oscilar</li>
+<li>pode divergir</li>
 </ul>
 
 ---
 
-<h3>8º - Learning Rate Decay</h3>
+<h3>5º - Trade-off</h3>
 
-<p>Uma estratégia comum é diminuir a taxa de aprendizado durante o treinamento.</p>
+<p>A escolha da taxa envolve equilíbrio entre:</p>
+
+<ul>
+<li>velocidade</li>
+<li>estabilidade</li>
+</ul>
+
+---
+
+<h3>6º - Estratégias práticas</h3>
+
+<ul>
+<li>testar diferentes valores</li>
+<li>usar valores pequenos como padrão inicial</li>
+<li>ajustar durante o treinamento</li>
+</ul>
+
+---
+
+<h3>7º - Decaimento da taxa (Learning Rate Decay)</h3>
+
+<p>Uma estratégia comum é reduzir a taxa ao longo do tempo:</p>
 
 <p class="equation">\(
 \eta_t = \frac{\eta_0}{1 + kt}
 \)</p>
 
-<ul>
-<li>\(\eta_0\): taxa inicial</li>
-<li>\(t\): iteração</li>
-<li>\(k\): fator de decaimento</li>
-</ul>
-
 <p>Isso permite:</p>
 
 <ul>
-<li>Passos maiores no início</li>
-<li>Ajustes finos no final</li>
+<li>exploração no início</li>
+<li>ajuste fino no final</li>
 </ul>
 
 ---
 
-<h3>9º - Relação com convergência</h3>
-
-<p>A taxa de aprendizado impacta diretamente:</p>
+<h3>8º - Impacto no treinamento</h3>
 
 <ul>
-<li>Velocidade de convergência</li>
-<li>Estabilidade do treinamento</li>
-<li>Qualidade da solução final</li>
+<li>define a velocidade de convergência</li>
+<li>afeta a estabilidade</li>
+<li>influencia a qualidade da solução final</li>
 </ul>
 
 ---
 
-<h3>10º - Conclusão</h3>
+<h3>9º - Conclusão</h3>
 
-<p>A taxa de aprendizado é um dos hiperparâmetros mais importantes do treinamento.</p>
+<p>A taxa de aprendizado é um dos hiperparâmetros mais críticos do treinamento.</p>
 
-<ul>
-<li>Controla o tamanho das atualizações</li>
-<li>Afeta a convergência do modelo</li>
-<li>Precisa ser ajustada cuidadosamente</li>
-</ul>
-
-<p>Um valor inadequado pode impedir completamente o aprendizado.</p>
+<p>Uma escolha inadequada pode impedir completamente a convergência.</p>
 
 </main>
 

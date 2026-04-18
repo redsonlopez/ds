@@ -22,60 +22,51 @@
 
 <h2>Gradiente Descendente (Gradient Descent)</h2>
 
-<h3>1º - O Problema: Minimizar o erro</h3>
+<h3>1º - O Problema: Minimizar uma função</h3>
 
-<p>Em machine learning, treinamos modelos minimizando uma função de erro.</p>
-
-<p>Por exemplo:</p>
+<p>Em Machine Learning, treinamos modelos minimizando uma função objetivo.</p>
 
 <p class="equation">\(
-R_{emp} = \frac{1}{n} \sum L(y_i, \hat{y}_i)
+J(\theta)
 \)</p>
 
-<p>O desafio é encontrar os parâmetros \(\theta\) que minimizam essa função.</p>
+<p>Essa função representa o erro do modelo em relação aos dados.</p>
 
-<p>Nem sempre existe solução analítica simples, então usamos métodos numéricos.</p>
+<p>Nem sempre existe uma solução analítica, então usamos métodos iterativos.</p>
 
 ---
 
-<h3>2º - Ideia Intuitiva</h3>
+<h3>2º - Ideia central</h3>
 
-<p>Imagine uma superfície com vales e montanhas.</p>
+<p>O gradiente descendente busca o valor de \(\theta\) que minimiza a função.</p>
 
-<p>Queremos encontrar o ponto mais baixo (mínimo).</p>
-
-<p>O gradiente descendente faz isso iterativamente:</p>
+<p>Ele funciona iterativamente:</p>
 
 <ul>
 <li>calcula a direção de maior crescimento</li>
-<li>anda na direção oposta</li>
+<li>move na direção oposta</li>
 </ul>
 
-<p><strong>Ou seja:</strong> sempre desce a "ladeira" mais íngreme.</p>
+<p>Ou seja, sempre desce na direção de maior redução do erro.</p>
 
 ---
 
-<h3>3º - O Gradiente</h3>
+<h3>3º - O gradiente</h3>
 
-<p>O gradiente é um vetor de derivadas parciais:</p>
+<p>O gradiente é o vetor de derivadas parciais:</p>
 
 <p class="equation">\(
-\nabla J(\theta) = 
-\left(
-\frac{\partial J}{\partial \theta_1}, 
-\frac{\partial J}{\partial \theta_2}, 
-\ldots
-\right)
+\nabla J(\theta)
 \)</p>
 
 <ul>
-<li>Indica a direção de maior aumento da função</li>
-<li>Seu oposto indica a direção de descida</li>
+<li>indica a direção de maior aumento da função</li>
+<li>o oposto indica a direção de descida</li>
 </ul>
 
 ---
 
-<h3>4º - Regra de Atualização</h3>
+<h3>4º - Regra de atualização</h3>
 
 <p>Os parâmetros são atualizados iterativamente:</p>
 
@@ -84,91 +75,60 @@ R_{emp} = \frac{1}{n} \sum L(y_i, \hat{y}_i)
 \)</p>
 
 <ul>
-<li>\(\theta\): parâmetros do modelo</li>
-<li>\(\alpha\): taxa de aprendizado (learning rate)</li>
-<li>\(\nabla J(\theta)\): gradiente</li>
+<li>\(\theta\): parâmetros</li>
+<li>\(\alpha\): taxa de aprendizado</li>
 </ul>
 
 ---
 
-<h3>5º - Taxa de Aprendizado (\(\alpha\))</h3>
+<h3>5º - Intuição geométrica</h3>
+
+<p>Podemos imaginar a função como uma superfície.</p>
 
 <ul>
-<li>\(\alpha\) pequeno → aprendizado lento</li>
-<li>\(\alpha\) grande → pode divergir</li>
+<li>o gradiente aponta para cima</li>
+<li>o algoritmo anda para baixo</li>
 </ul>
 
-<p>Escolher \(\alpha\) corretamente é essencial.</p>
+<p>O objetivo é alcançar um mínimo da função.</p>
 
 ---
 
-<h3>6º - Exemplo Intuitivo</h3>
-
-<p>Suponha que queremos minimizar:</p>
-
-<p class="equation">\(
-J(\theta) = \theta^2
-\)</p>
-
-<p>O gradiente é:</p>
-
-<p class="equation">\(
-\frac{dJ}{d\theta} = 2\theta
-\)</p>
-
-<p>Atualização:</p>
-
-<p class="equation">\(
-\theta := \theta - \alpha \cdot 2\theta
-\)</p>
-
-<p>Com iterações sucessivas, \(\theta\) se aproxima de zero (mínimo).</p>
-
----
-
-<h3>7º - Critérios de Parada</h3>
-
-<p>O algoritmo pode parar quando:</p>
+<h3>6º - Critérios de parada</h3>
 
 <ul>
-<li>o número máximo de iterações é atingido</li>
-<li>a mudança nos parâmetros é pequena</li>
-<li>o gradiente é próximo de zero</li>
+<li>número máximo de iterações</li>
+<li>gradiente próximo de zero</li>
+<li>pequena mudança nos parâmetros</li>
 </ul>
 
 ---
 
-<h3>8º - Tipos de Gradiente Descendente</h3>
+<h3>7º - Variações</h3>
 
 <ul>
-<li><strong>Batch Gradient Descent</strong>: usa todos os dados</li>
-<li><strong>Stochastic Gradient Descent (SGD)</strong>: usa um exemplo por vez</li>
-<li><strong>Mini-batch</strong>: usa pequenos grupos de dados</li>
+<li><strong>Batch:</strong> usa todo o dataset</li>
+<li><strong>Stochastic (SGD):</strong> usa uma amostra</li>
+<li><strong>Mini-batch:</strong> usa pequenos grupos</li>
 </ul>
 
 ---
 
-<h3>9º - Limitações</h3>
+<h3>8º - Limitações</h3>
 
 <ul>
-<li>Pode ficar preso em mínimos locais</li>
-<li>Sensível à escolha de \(\alpha\)</li>
-<li>Pode ser lento em superfícies complexas</li>
+<li>sensível à escolha da taxa de aprendizado</li>
+<li>pode convergir lentamente</li>
+<li>pode parar em mínimos locais ou pontos de sela</li>
 </ul>
 
 ---
 
-<h3>10º - Conclusão</h3>
+<h3>9º - Conclusão</h3>
 
-<p>O gradiente descendente é o principal método de otimização em machine learning.</p>
+<p>O gradiente descendente é o principal método para otimizar modelos.</p>
 
-<ul>
-<li>Permite treinar modelos complexos</li>
-<li>Base para redes neurais</li>
-<li>Amplamente utilizado em diversos algoritmos</li>
-</ul>
-
-<p>Entender seu funcionamento é essencial para compreender como os modelos aprendem.</p>
+<p>Ele permite encontrar bons parâmetros mesmo quando não há solução analítica.</p>
 
 </main>
 

@@ -22,32 +22,28 @@
 
 <h2>Train/Test Split</h2>
 
-<h3>1º - O Problema: Avaliar no mesmo dado é errado</h3>
+<h3>1º - O Problema: Avaliação enviesada</h3>
 
-<p>Se treinarmos e avaliarmos um modelo usando os mesmos dados, teremos uma métrica irrealista.</p>
+<p>Se avaliarmos um modelo nos mesmos dados usados no treinamento, o erro será irrealista.</p>
 
-<p><strong>O modelo pode simplesmente "decorar" os dados.</strong></p>
-
-<p>Isso leva a uma avaliação otimista e enganosa.</p>
+<p>O modelo pode simplesmente se ajustar aos dados, sem realmente aprender padrões gerais.</p>
 
 ---
 
 <h3>2º - Ideia do Train/Test Split</h3>
 
-<p>Dividimos os dados em duas partes:</p>
+<p>Para obter uma avaliação mais confiável, dividimos os dados em dois conjuntos:</p>
 
 <ul>
-<li><strong>Treino (train)</strong>: usado para ajustar o modelo</li>
-<li><strong>Teste (test)</strong>: usado para avaliar o modelo</li>
+<li><strong>Treino (train):</strong> usado para ajustar o modelo</li>
+<li><strong>Teste (test):</strong> usado apenas para avaliação</li>
 </ul>
 
-<p>O modelo nunca vê os dados de teste durante o treinamento.</p>
+<p>O modelo não tem acesso aos dados de teste durante o treinamento.</p>
 
 ---
 
-<h3>3º - Representação</h3>
-
-<p>Se temos um conjunto de dados \(D\), fazemos:</p>
+<h3>3º - Formalização</h3>
 
 <p class="equation">\(
 D = D_{train} \cup D_{test}
@@ -57,124 +53,51 @@ D = D_{train} \cup D_{test}
 D_{train} \cap D_{test} = \emptyset
 \)</p>
 
-<p>Ou seja, os conjuntos são separados e não se sobrepõem.</p>
+<p>Os conjuntos são separados e não se sobrepõem.</p>
 
 ---
 
-<h3>4º - Proporção comum</h3>
-
-<p>Uma divisão típica é:</p>
+<h3>4º - Intuição</h3>
 
 <ul>
-<li>70% → treino</li>
-<li>30% → teste</li>
+<li>Treino → o modelo aprende</li>
+<li>Teste → simula dados novos</li>
 </ul>
 
-<p>Outras variações comuns:</p>
-
-<ul>
-<li>80/20</li>
-<li>75/25</li>
-</ul>
-
-<p>Não existe uma única divisão correta.</p>
+<p>Isso aproxima o comportamento do modelo no mundo real.</p>
 
 ---
 
-<h3>5º - Exemplo simples</h3>
-
-<p>Suponha 10 amostras:</p>
-
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Uso</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>Treino</td></tr>
-<tr><td>2</td><td>Treino</td></tr>
-<tr><td>3</td><td>Treino</td></tr>
-<tr><td>4</td><td>Treino</td></tr>
-<tr><td>5</td><td>Treino</td></tr>
-<tr><td>6</td><td>Treino</td></tr>
-<tr><td>7</td><td>Teste</td></tr>
-<tr><td>8</td><td>Teste</td></tr>
-<tr><td>9</td><td>Teste</td></tr>
-<tr><td>10</td><td>Teste</td></tr>
-</tbody>
-</table>
-
----
-
-<h3>6º - Importância da aleatoriedade</h3>
-
-<p>A divisão deve ser feita de forma aleatória.</p>
-
-<p>Sem isso, podemos introduzir viés no modelo.</p>
-
-<p>Exemplo de problema:</p>
+<h3>5º - Escolha da proporção</h3>
 
 <ul>
-<li>dados ordenados por tempo</li>
-<li>treino com dados antigos</li>
-<li>teste com dados recentes</li>
-</ul>
-
-<p>Isso pode distorcer a avaliação.</p>
-
----
-
-<h3>7º - Estratificação (classificação)</h3>
-
-<p>Em problemas de classificação, é importante manter a proporção das classes.</p>
-
-<p>Isso é chamado de <strong>estratificação</strong>.</p>
-
-<p>Exemplo:</p>
-
-<ul>
-<li>90% classe A</li>
-<li>10% classe B</li>
-</ul>
-
-<p>Ambos os conjuntos devem preservar essa proporção.</p>
-
----
-
-<h3>8º - Limitações</h3>
-
-<ul>
-<li>Resultados podem variar dependendo da divisão</li>
-<li>Pode não representar bem o comportamento geral</li>
-</ul>
-
-<p>Por isso, técnicas como validação cruzada são frequentemente usadas.</p>
-
----
-
-<h3>9º - Quando usar</h3>
-
-<ul>
-<li>Primeira avaliação de modelos</li>
-<li>Datasets grandes</li>
-<li>Análises rápidas</li>
+<li>70/30 ou 80/20 são comuns</li>
+<li>Mais dados de treino → melhor aprendizado</li>
+<li>Mais dados de teste → avaliação mais estável</li>
 </ul>
 
 ---
 
-<h3>10º - Conclusão</h3>
-
-<p>O train/test split é uma abordagem simples e essencial para avaliar modelos.</p>
+<h3>6º - Boas práticas</h3>
 
 <ul>
-<li>Evita avaliações enviesadas</li>
-<li>Simula dados não vistos</li>
-<li>É base para métodos mais avançados</li>
+<li>Dividir de forma aleatória</li>
+<li>Usar estratificação em classificação</li>
 </ul>
 
-<p>Sem essa separação, não é possível confiar nos resultados do modelo.</p>
+---
+
+<h3>7º - Limitação</h3>
+
+<p>O resultado depende da divisão escolhida.</p>
+
+<p>Diferentes divisões podem gerar avaliações diferentes.</p>
+
+---
+
+<h3>8º - Conclusão</h3>
+
+<p>O train/test split é a forma mais simples de avaliar modelos, mas pode gerar estimativas instáveis.</p>
 
 </main>
 

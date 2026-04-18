@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Feature Engineering</title>
+
+    <script src="../../../components/base.js"></script>
+    <script src="components/site-sidebar.js" defer></script>
+    <script src="components/site-footer.js" defer></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+
+    <site-sidebar></site-sidebar>
+
+<main>
+
+<h2>Engenharia de Recursos (Feature Engineering)</h2>
+
+<h3>1º - Representação dos dados</h3>
+
+<p>Modelos de Machine Learning não "entendem" os dados.</p>
+
+<p>Eles apenas recebem números e tentam encontrar padrões matemáticos.</p>
+
+<p>O desempenho do modelo depende diretamente de como os dados são representados.</p>
+
+---
+
+<h3>2º - Ideia central</h3>
+
+<p>Feature engineering é o processo de transformar dados brutos em uma representação mais útil.</p>
+
+<p>O objetivo é facilitar o aprendizado do modelo.</p>
+
+---
+
+<h3>3º - Por que isso importa?</h3>
+
+<p>O mesmo problema pode ser fácil ou difícil dependendo da representação.</p>
+
+<p>Considere dois cenários:</p>
+
+<ul>
+<li>dados mal representados → modelo não encontra padrão</li>
+<li>dados bem representados → padrão se torna evidente</li>
+</ul>
+
+<p>Ou seja, não é só o modelo que importa — a forma dos dados também importa.</p>
+
+---
+
+<h3>4º - Intuição geométrica</h3>
+
+<p>Podemos imaginar os dados como pontos em um espaço.</p>
+
+<p>O modelo tenta separar ou ajustar esses pontos.</p>
+
+<ul>
+<li>dados desorganizados → difícil separar</li>
+<li>dados transformados → separação mais simples</li>
+</ul>
+
+<p>Feature engineering muda a posição dos pontos nesse espaço.</p>
+
+---
+
+<h3>5º - Exemplo simples</h3>
+
+<p>Suponha uma relação não linear:</p>
+
+<p class="equation">\(
+y = x^2
+\)</p>
+
+<p>Se usamos apenas \(x\), o modelo linear não consegue aprender bem.</p>
+
+<p>Mas se criamos uma nova feature \(x^2\):</p>
+
+<p class="equation">\(
+y = \beta_1 x + \beta_2 x^2
+\)</p>
+
+<p>O problema se torna mais fácil.</p>
+
+---
+
+<h3>6º - Tipos de transformação</h3>
+
+<ul>
+<li>escalonamento → ajustar magnitudes</li>
+<li>codificação → transformar categorias</li>
+<li>criação de features → gerar novas variáveis</li>
+<li>seleção de features → remover variáveis irrelevantes</li>
+</ul>
+
+<p>Cada transformação altera como o modelo percebe os dados.</p>
+
+---
+
+<h3>7º - Relação com o modelo</h3>
+
+<p>Diferentes modelos têm diferentes limitações:</p>
+
+<ul>
+<li>modelos lineares → precisam de boas representações</li>
+<li>modelos mais complexos → conseguem aprender mais padrões automaticamente</li>
+</ul>
+
+<p>Mesmo assim, boas features quase sempre melhoram o desempenho.</p>
+
+---
+
+<h3>8º - Risco</h3>
+
+<p>Transformações inadequadas podem piorar o modelo.</p>
+
+<ul>
+<li>inserir ruído</li>
+<li>criar relações artificiais</li>
+<li>aumentar complexidade sem necessidade</li>
+</ul>
+
+---
+
+<h3>9º - Boa prática</h3>
+
+<p>Feature engineering deve ser guiado por:</p>
+
+<ul>
+<li>entendimento dos dados</li>
+<li>conhecimento do problema</li>
+<li>validação empírica</li>
+</ul>
+
+<p>Não é um processo puramente automático.</p>
+
+---
+
+<h3>10º - Conclusão</h3>
+
+<p>Feature engineering é a ponte entre dados brutos e aprendizado eficaz.</p>
+
+<p>Uma boa representação pode ser tão importante quanto o modelo utilizado.</p>
+
+</main>
+
+</body>
+</html>
+
