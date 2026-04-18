@@ -5,10 +5,10 @@ class SiteSidebar extends HTMLElement {
       <nav>
         <a href="/">Inteligência Artificial e Aprendizado de Máquina</a>
 
-        <h2>Modelos Base</h2>
+        <h2>Modelos Fundamentais</h2>
         <a href="topics/models/regression/simple-linear.html">Regressão Linear</a>
         <a href="topics/models/tree-based/decision-tree.html">Árvore de Decisão</a>
-        <a href="topics/models/neural-networks/perceptron.html">Perceptron (Redes Neurais)</a>
+        <a href="topics/models/neural-networks/perceptron.html">Perceptron (Neurônio Artificial)</a>
 
         <h2>Fundamentos</h2>
         <a href="topics/fundamentals/empirical-risk.html">Risco Empírico</a>
@@ -29,7 +29,9 @@ class SiteSidebar extends HTMLElement {
         <a href="topics/learning-process/feature-engineering/scaling-normalization.html">Escalonamento</a>
         <a href="topics/learning-process/feature-engineering/encoding.html">Codificação</a>
 
+        <!--
         <h2>Modelos</h2>
+        -->
 
         <!--
         <h2>Regressão</h2>
@@ -44,7 +46,11 @@ class SiteSidebar extends HTMLElement {
 
         <h2>Baseado em Distância</h2>
         -->
+        
+        <!--
         <a href="topics/models/neighbors/knn-classification.html">KNN para Classificação</a>
+        -->        
+      
         <!--
         <a href="topics/models/neighbors/distance-metrics.html">Métricas de Distância</a>
         <a href="topics/models/neighbors/knn-regression.html">KNN Regressão</a>

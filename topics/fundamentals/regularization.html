@@ -20,7 +20,7 @@
 
 <main>
 
-<h2>Regularização (Regularization)</h2>
+<h2>Regularização</h2>
 
 <h3>1º - O Problema: Overfitting</h3>
 
@@ -50,6 +50,8 @@ R_{emp} + \lambda \cdot \Omega(\theta)
 
 <h3>3º - Regularização L2 (Ridge)</h3>
 
+<p>Penaliza o quadrado dos parâmetros:</p>
+
 <p class="equation">\(
 \Omega(\theta) = \sum \theta_i^2
 \)</p>
@@ -62,6 +64,8 @@ R_{emp} + \lambda \cdot \Omega(\theta)
 ---
 
 <h3>4º - Regularização L1 (Lasso)</h3>
+
+<p>Penaliza o valor absoluto dos parâmetros:</p>
 
 <p class="equation">\(
 \Omega(\theta) = \sum |\theta_i|
@@ -99,6 +103,10 @@ R_{emp} + \lambda \cdot \Omega(\theta)
 <p>A regularização é um dos principais mecanismos para controlar overfitting.</p>
 
 <p>Ela equilibra ajuste aos dados e simplicidade do modelo.</p>
+
+  <site-footer
+    prev="topics/fundamentals/bias-variance.html"
+  </site-footer>
 
 </main>
 
