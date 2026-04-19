@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Funções de Perda</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Funções de Perda</title>
 
     <script src="../../components/base.js"></script>
     <script src="components/site-sidebar.js" defer></script>
@@ -18,85 +18,86 @@
 
     <site-sidebar></site-sidebar>
 
-<main>
+    <main>
 
-<h2>Funções de Perda</h2>
+      <h2>Funções de Perda</h2>
 
-<h3>1º - O papel da função de perda</h3>
+      <h3>1º - O papel da função de perda</h3>
 
-<p>A função de perda define como o erro é medido para uma única previsão.</p>
+      <p>A função de perda define como o erro é medido para uma única previsão.</p>
 
-<p class="equation">\( L(y, \hat{y}) \)</p>
+      <p class="equation">\( L(y, \hat{y}) \)</p>
 
-<p>Escolher a função de perda define o comportamento do modelo.</p>
+      <p>Escolher a função de perda define o comportamento do modelo.</p>
 
----
+      ---
 
-<h3>2º - Mean Squared Error (MSE)</h3>
+      <h3>2º - Mean Squared Error (MSE)</h3>
 
-<p class="equation">\(
-MSE = \frac{1}{n} \sum (y_i - \hat{y}_i)^2
-\)</p>
+      <p class="equation">\(
+      MSE = \frac{1}{n} \sum (y_i - \hat{y}_i)^2
+      \)</p>
 
-<ul>
-<li>Penaliza erros grandes com mais intensidade</li>
-<li>Sensível a outliers</li>
-</ul>
+      <ul>
+        <li>Penaliza erros grandes com mais intensidade</li>
+        <li>Sensível a outliers</li>
+      </ul>
 
-<p><strong>Intuição:</strong><br>
-Erros grandes são "amplificados" pelo quadrado.</p>
+      <p><strong>Intuição:</strong><br>
+      Erros grandes são "amplificados" pelo quadrado.</p>
 
----
+      ---
 
-<h3>3º - Mean Absolute Error (MAE)</h3>
+      <h3>3º - Mean Absolute Error (MAE)</h3>
 
-<p class="equation">\(
-MAE = \frac{1}{n} \sum |y_i - \hat{y}_i|
-\)</p>
+      <p class="equation">\(
+      MAE = \frac{1}{n} \sum |y_i - \hat{y}_i|
+      \)</p>
 
-<ul>
-<li>Trata erros de forma linear</li>
-<li>Mais robusta a outliers</li>
-</ul>
+      <ul>
+        <li>Trata erros de forma linear</li>
+        <li>Mais robusta a outliers</li>
+      </ul>
 
----
+      ---
 
-<h3>4º - Log Loss (Binary Cross-Entropy)</h3>
+      <h3>4º - Log Loss (Binary Cross-Entropy)</h3>
 
-<p>Usada em problemas de classificação binária.</p>
+      <p>Usada em problemas de classificação binária.</p>
 
-<p class="equation">\(
-L = - \frac{1}{n} \sum \left[ y_i \log(p_i) + (1 - y_i)\log(1 - p_i) \right]
-\)</p>
+      <p class="equation">\(
+      L = - \frac{1}{n} \sum \left[ y_i \log(p_i) + (1 - y_i)\log(1 - p_i) \right]
+      \)</p>
 
-<ul>
-<li>Pune previsões confiantes e erradas</li>
-<li>Baseada em probabilidade</li>
-</ul>
+      <ul>
+        <li>Pune previsões confiantes e erradas</li>
+        <li>Baseada em probabilidade</li>
+      </ul>
 
----
+      ---
 
-<h3>5º - Interpretação</h3>
+      <h3>5º - Interpretação</h3>
 
-<ul>
-<li>MSE → prioriza grandes erros</li>
-<li>MAE → mais estável</li>
-<li>Log Loss → avalia probabilidades</li>
-</ul>
+      <ul>
+        <li>MSE → prioriza grandes erros</li>
+        <li>MAE → mais estável</li>
+        <li>Log Loss → avalia probabilidades</li>
+      </ul>
 
----
+      ---
 
-<h3>6º - Conclusão</h3>
+      <h3>6º - Conclusão</h3>
 
-<p>A função de perda define o que significa “errar” e influencia diretamente o comportamento do modelo.</p>
+      <p>A função de perda define o que significa “errar” e influencia diretamente o comportamento do modelo.</p>
 
-  <site-footer
-    prev="topics/fundamentals/empirical-risk.html"
-    next="topics/fundamentals/overfitting-underfitting.html">
-  </site-footer>
+      <site-footer
+        prev="topics/fundamentals/empirical-risk.html"
+        next="topics/fundamentals/overfitting-underfitting.html">
+      </site-footer>
 
-</main>
+    </main>
 
-</body>
+  </body>
+
 </html>
 

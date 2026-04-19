@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Regularização</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Regularização</title>
 
     <script src="../../components/base.js"></script>
     <script src="components/site-sidebar.js" defer></script>
@@ -18,98 +18,99 @@
 
     <site-sidebar></site-sidebar>
 
-<main>
+    <main>
 
-<h2>Regularização</h2>
+      <h2>Regularização</h2>
 
-<h3>1º - O Problema: Overfitting</h3>
+      <h3>1º - O Problema: Overfitting</h3>
 
-<p>Modelos muito complexos tendem a se ajustar demais aos dados de treino.</p>
+      <p>Modelos muito complexos tendem a se ajustar demais aos dados de treino.</p>
 
-<p>Isso reduz a capacidade de generalização.</p>
+      <p>Isso reduz a capacidade de generalização.</p>
 
----
+      ---
 
-<h3>2º - Ideia da Regularização</h3>
+      <h3>2º - Ideia da Regularização</h3>
 
-<p>A regularização controla a complexidade do modelo.</p>
+      <p>A regularização controla a complexidade do modelo.</p>
 
-<p>Ela adiciona uma penalização aos parâmetros durante o treinamento.</p>
+      <p>Ela adiciona uma penalização aos parâmetros durante o treinamento.</p>
 
-<p class="equation">\(
-R_{emp} + \lambda \cdot \Omega(\theta)
-\)</p>
+      <p class="equation">\(
+      R_{emp} + \lambda \cdot \Omega(\theta)
+      \)</p>
 
-<ul>
-<li>\(R_{emp}\): erro nos dados</li>
-<li>\(\Omega(\theta)\): penalização</li>
-<li>\(\lambda\): intensidade da penalização</li>
-</ul>
+      <ul>
+        <li>\(R_{emp}\): erro nos dados</li>
+        <li>\(\Omega(\theta)\): penalização</li>
+        <li>\(\lambda\): intensidade da penalização</li>
+      </ul>
 
----
+      ---
 
-<h3>3º - Regularização L2 (Ridge)</h3>
+      <h3>3º - Regularização L2 (Ridge)</h3>
 
-<p>Penaliza o quadrado dos parâmetros:</p>
+      <p>Penaliza o quadrado dos parâmetros:</p>
 
-<p class="equation">\(
-\Omega(\theta) = \sum \theta_i^2
-\)</p>
+      <p class="equation">\(
+      \Omega(\theta) = \sum \theta_i^2
+      \)</p>
 
-<ul>
-<li>Reduz valores dos coeficientes</li>
-<li>Mantém todas as variáveis no modelo</li>
-</ul>
+      <ul>
+        <li>Reduz valores dos coeficientes</li>
+        <li>Mantém todas as variáveis no modelo</li>
+      </ul>
 
----
+      ---
 
-<h3>4º - Regularização L1 (Lasso)</h3>
+      <h3>4º - Regularização L1 (Lasso)</h3>
 
-<p>Penaliza o valor absoluto dos parâmetros:</p>
+      <p>Penaliza o valor absoluto dos parâmetros:</p>
 
-<p class="equation">\(
-\Omega(\theta) = \sum |\theta_i|
-\)</p>
+      <p class="equation">\(
+      \Omega(\theta) = \sum |\theta_i|
+      \)</p>
 
-<ul>
-<li>Pode zerar coeficientes</li>
-<li>Realiza seleção de variáveis</li>
-</ul>
+      <ul>
+        <li>Pode zerar coeficientes</li>
+        <li>Realiza seleção de variáveis</li>
+      </ul>
 
----
+      ---
 
-<h3>5º - Papel de \(\lambda\)</h3>
+      <h3>5º - Papel de \(\lambda\)</h3>
 
-<ul>
-<li>\(\lambda = 0\) → sem regularização</li>
-<li>\(\lambda\) pequeno → leve penalização</li>
-<li>\(\lambda\) grande → modelo mais simples</li>
-</ul>
+      <ul>
+        <li>\(\lambda = 0\) → sem regularização</li>
+        <li>\(\lambda\) pequeno → leve penalização</li>
+        <li>\(\lambda\) grande → modelo mais simples</li>
+      </ul>
 
----
+      ---
 
-<h3>6º - Interpretação</h3>
+      <h3>6º - Interpretação</h3>
 
-<ul>
-<li>Penaliza modelos complexos</li>
-<li>Evita ajuste excessivo</li>
-<li>Melhora a generalização</li>
-</ul>
+      <ul>
+        <li>Penaliza modelos complexos</li>
+        <li>Evita ajuste excessivo</li>
+        <li>Melhora a generalização</li>
+      </ul>
 
----
+      ---
 
-<h3>7º - Conclusão</h3>
+      <h3>7º - Conclusão</h3>
 
-<p>A regularização é um dos principais mecanismos para controlar overfitting.</p>
+      <p>A regularização é um dos principais mecanismos para controlar overfitting.</p>
 
-<p>Ela equilibra ajuste aos dados e simplicidade do modelo.</p>
+      <p>Ela equilibra ajuste aos dados e simplicidade do modelo.</p>
 
-  <site-footer
-    prev="topics/fundamentals/bias-variance.html"
-  </site-footer>
+      <site-footer
+        prev="topics/fundamentals/bias-variance.html"
+      </site-footer>
 
-</main>
+    </main>
 
-</body>
+  </body>
+
 </html>
 

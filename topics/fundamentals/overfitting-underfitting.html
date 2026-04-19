@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Overfitting e Underfitting</title>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overfitting e Underfitting</title>
 
     <script src="../../components/base.js"></script>
     <script src="components/site-sidebar.js" defer></script>
@@ -18,86 +18,87 @@
 
     <site-sidebar></site-sidebar>
 
-<main>
+    <main>
 
-<h2>Overfitting e Underfitting</h2>
+      <h2>Overfitting e Underfitting</h2>
 
-<h3>1º - O Problema: Ajustar os dados corretamente</h3>
+      <h3>1º - O Problema: Ajustar os dados corretamente</h3>
 
-<p>Ao treinar um modelo, queremos que ele aprenda padrões reais dos dados.</p>
+      <p>Ao treinar um modelo, queremos que ele aprenda padrões reais dos dados.</p>
 
-<p>Mas existem dois erros comuns:</p>
+      <p>Mas existem dois erros comuns:</p>
 
-<ul>
-<li><strong>Underfitting:</strong> o modelo não aprende o suficiente</li>
-<li><strong>Overfitting:</strong> o modelo aprende demais</li>
-</ul>
+      <ul>
+        <li><strong>Underfitting:</strong> o modelo não aprende o suficiente</li>
+        <li><strong>Overfitting:</strong> o modelo aprende demais</li>
+      </ul>
 
----
+      ---
 
-<h3>2º - Underfitting (modelo simples demais)</h3>
+      <h3>2º - Underfitting (modelo simples demais)</h3>
 
-<p>O modelo não consegue capturar o padrão dos dados.</p>
+      <p>O modelo não consegue capturar o padrão dos dados.</p>
 
-<ul>
-<li>Erro alto no treino</li>
-<li>Erro alto no teste</li>
-</ul>
+      <ul>
+        <li>Erro alto no treino</li>
+        <li>Erro alto no teste</li>
+      </ul>
 
-<p><strong>Interpretação:</strong> o modelo é limitado demais.</p>
+      <p><strong>Interpretação:</strong> o modelo é limitado demais.</p>
 
----
+      ---
 
-<h3>3º - Overfitting (modelo complexo demais)</h3>
+      <h3>3º - Overfitting (modelo complexo demais)</h3>
 
-<p>O modelo se ajusta excessivamente aos dados de treino.</p>
+      <p>O modelo se ajusta excessivamente aos dados de treino.</p>
 
-<ul>
-<li>Erro baixo no treino</li>
-<li>Erro alto no teste</li>
-</ul>
+      <ul>
+        <li>Erro baixo no treino</li>
+        <li>Erro alto no teste</li>
+      </ul>
 
-<p><strong>Interpretação:</strong> o modelo aprende ruído em vez de padrão.</p>
+      <p><strong>Interpretação:</strong> o modelo aprende ruído em vez de padrão.</p>
 
----
+      ---
 
-<h3>4º - Equilíbrio</h3>
+      <h3>4º - Equilíbrio</h3>
 
-<p>O objetivo é encontrar um modelo que:</p>
+      <p>O objetivo é encontrar um modelo que:</p>
 
-<ul>
-<li>Aprenda o padrão real</li>
-<li>Ignore o ruído</li>
-</ul>
+      <ul>
+        <li>Aprenda o padrão real</li>
+        <li>Ignore o ruído</li>
+      </ul>
 
-<p>Isso leva a boa generalização.</p>
+      <p>Isso leva a boa generalização.</p>
 
----
+      ---
 
-<h3>5º - Generalização</h3>
+      <h3>5º - Generalização</h3>
 
-<p>Generalizar significa performar bem em dados novos.</p>
+      <p>Generalizar significa performar bem em dados novos.</p>
 
-<ul>
-<li>Underfitting → falha em aprender</li>
-<li>Overfitting → falha em generalizar</li>
-</ul>
+      <ul>
+        <li>Underfitting → falha em aprender</li>
+        <li>Overfitting → falha em generalizar</li>
+      </ul>
 
----
+      ---
 
-<h3>6º - Conclusão</h3>
+      <h3>6º - Conclusão</h3>
 
-<p>Overfitting e underfitting representam dois extremos do ajuste do modelo.</p>
+      <p>Overfitting e underfitting representam dois extremos do ajuste do modelo.</p>
 
-<p>O objetivo do aprendizado é encontrar um ponto intermediário.</p>
+      <p>O objetivo do aprendizado é encontrar um ponto intermediário.</p>
 
-  <site-footer
-    prev="topics/fundamentals/loss-functions.html"
-    next="topics/fundamentals/bias-variance.html">
-  </site-footer>
+      <site-footer
+        prev="topics/fundamentals/loss-functions.html"
+        next="topics/fundamentals/bias-variance.html">
+      </site-footer>
 
-</main>
+    </main>
 
-</body>
+  </body>
+
 </html>
 

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Risco Empírico</title>
 
-    <!-- <base href="/ds/"> -->
     <script src="../../components/base.js"></script>
     <script src="components/site-sidebar.js" defer></script>
     <script src="components/site-footer.js" defer></script>
@@ -19,82 +18,83 @@
 
     <site-sidebar></site-sidebar>
 
-<main>
+    <main>
 
-<h2>Risco Empírico</h2>
+      <h2>Risco Empírico</h2>
 
-<h3>1º - Objetivo: Medir o Erro do Modelo</h3>
+      <h3>1º - Objetivo: Medir o Erro do Modelo</h3>
 
-<p>Para treinar um modelo, precisamos medir o quão bem ele está performando.</p>
+      <p>Para treinar um modelo, precisamos medir o quão bem ele está performando.</p>
 
-<p>Isso exige uma forma de quantificar o erro entre:</p>
+      <p>Isso exige uma forma de quantificar o erro entre:</p>
 
-<ul>
-<li>\(y\): valor real</li>
-<li>\(\hat{y}\): valor previsto</li>
-</ul>
+      <ul>
+        <li>\(y\): valor real</li>
+        <li>\(\hat{y}\): valor previsto</li>
+      </ul>
 
----
+      ---
 
-<h3>2º - Erro em um único ponto</h3>
+      <h3>2º - Erro em um único ponto</h3>
 
-<p>Chamamos de <strong>função de perda</strong> a medida de erro para uma única previsão:</p>
+      <p>Chamamos de <strong>função de perda</strong> a medida de erro para uma única previsão:</p>
 
-<p class="equation">\( L(y, \hat{y}) \)</p>
+      <p class="equation">\( L(y, \hat{y}) \)</p>
 
-<p>Ela indica o quanto uma previsão está errada.</p>
+      <p>Ela indica o quanto uma previsão está errada.</p>
 
----
+      ---
 
-<h3>3º - Do erro individual ao erro total</h3>
+      <h3>3º - Do erro individual ao erro total</h3>
 
-<p>Um modelo faz várias previsões. Precisamos avaliar o desempenho geral.</p>
+      <p>Um modelo faz várias previsões. Precisamos avaliar o desempenho geral.</p>
 
-<p>Fazemos isso calculando a média dos erros:</p>
+      <p>Fazemos isso calculando a média dos erros:</p>
 
-<p class="equation">\(
-R_{emp} = \frac{1}{n} \sum_{i=1}^{n} L(y_i, \hat{y}_i)
-\)</p>
+      <p class="equation">\(
+      R_{emp} = \frac{1}{n} \sum_{i=1}^{n} L(y_i, \hat{y}_i)
+      \)</p>
 
----
+      ---
 
-<h3>4º - Interpretação</h3>
+      <h3>4º - Interpretação</h3>
 
-<ul>
-<li>Mede o erro médio no conjunto de treino</li>
-<li>Quanto menor, melhor o ajuste aos dados</li>
-</ul>
+      <ul>
+        <li>Mede o erro médio no conjunto de treino</li>
+        <li>Quanto menor, melhor o ajuste aos dados</li>
+      </ul>
 
----
+      ---
 
-<h3>5º - Objetivo do aprendizado</h3>
+      <h3>5º - Objetivo do aprendizado</h3>
 
-<p>Treinar um modelo significa minimizar esse valor:</p>
+      <p>Treinar um modelo significa minimizar esse valor:</p>
 
-<p class="equation">\(
-\min_{\theta} R_{emp}(\theta)
-\)</p>
+      <p class="equation">\(
+      \min_{\theta} R_{emp}(\theta)
+      \)</p>
 
----
+      ---
 
-<h3>6º - Limitação</h3>
+      <h3>6º - Limitação</h3>
 
-<p>Minimizar o erro no treino não garante bom desempenho em novos dados.</p>
+      <p>Minimizar o erro no treino não garante bom desempenho em novos dados.</p>
 
-<p>Esse é o ponto de partida para entender generalização.</p>
+      <p>Esse é o ponto de partida para entender generalização.</p>
 
----
+      ---
 
-<h3>7º - Conclusão</h3>
+      <h3>7º - Conclusão</h3>
 
-<p>O risco empírico define o objetivo do treinamento: minimizar o erro médio nos dados disponíveis.</p>
+      <p>O risco empírico define o objetivo do treinamento: minimizar o erro médio nos dados disponíveis.</p>
 
-  <site-footer
-    next="topics/fundamentals/loss-functions.html">
-  </site-footer>
+      <site-footer
+        next="topics/fundamentals/loss-functions.html">
+      </site-footer>
 
-</main>
+    </main>
 
   </body>
+
 </html>
 

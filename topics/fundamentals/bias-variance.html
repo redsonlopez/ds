@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bias vs Variance</title>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bias vs Variance</title>
 
     <script src="../../components/base.js"></script>
     <script src="components/site-sidebar.js" defer></script>
@@ -17,105 +18,106 @@
 
     <site-sidebar></site-sidebar>
 
-<main>
+    <main>
 
-<h2>Bias vs Variance</h2>
+      <h2>Bias vs Variance</h2>
 
-<h3>1º - Origem do erro</h3>
+      <h3>1º - Origem do erro</h3>
 
-<p>O erro de um modelo pode ser decomposto em diferentes componentes.</p>
+      <p>O erro de um modelo pode ser decomposto em diferentes componentes.</p>
 
-<p>Os principais são:</p>
+      <p>Os principais são:</p>
 
-<ul>
-<li><strong>Bias (viés)</strong></li>
-<li><strong>Variance (variância)</strong></li>
-</ul>
+      <ul>
+        <li><strong>Bias (viés)</strong></li>
+        <li><strong>Variance (variância)</strong></li>
+      </ul>
 
----
+      ---
 
-<h3>2º - Decomposição do erro</h3>
+      <h3>2º - Decomposição do erro</h3>
 
-<p class="equation">\(
-Erro = Bias^2 + Variance + Ruído
-\)</p>
+      <p class="equation">\(
+      Erro = Bias^2 + Variance + Ruído
+      \)</p>
 
-<ul>
-<li><strong>Bias²:</strong> erro sistemático</li>
-<li><strong>Variance:</strong> sensibilidade aos dados</li>
-<li><strong>Ruído:</strong> erro irreduzível</li>
-</ul>
+      <ul>
+        <li><strong>Bias²:</strong> erro sistemático</li>
+        <li><strong>Variance:</strong> sensibilidade aos dados</li>
+        <li><strong>Ruído:</strong> erro irreduzível</li>
+      </ul>
 
----
+      ---
 
-<h3>3º - Bias (Viés)</h3>
+      <h3>3º - Bias (Viés)</h3>
 
-<p>Bias mede o quanto o modelo erra por assumir uma forma muito simples.</p>
+      <p>Bias mede o quanto o modelo erra por assumir uma forma muito simples.</p>
 
-<ul>
-<li>Modelos simples → alto bias</li>
-<li>Dificuldade em capturar padrões complexos</li>
-</ul>
+      <ul>
+        <li>Modelos simples → alto bias</li>
+        <li>Dificuldade em capturar padrões complexos</li>
+      </ul>
 
----
+      ---
 
-<h3>4º - Variance (Variância)</h3>
+      <h3>4º - Variance (Variância)</h3>
 
-<p>Variance mede o quanto o modelo muda com pequenas variações nos dados.</p>
+      <p>Variance mede o quanto o modelo muda com pequenas variações nos dados.</p>
 
-<ul>
-<li>Modelos complexos → alta variância</li>
-<li>Sensíveis ao conjunto de treino</li>
-</ul>
+      <ul>
+        <li>Modelos complexos → alta variância</li>
+        <li>Sensíveis ao conjunto de treino</li>
+      </ul>
 
----
+      ---
 
-<h3>5º - Relação com o ajuste do modelo</h3>
+      <h3>5º - Relação com o ajuste do modelo</h3>
 
-<ul>
-<li>Alto bias → modelo rígido</li>
-<li>Alta variância → modelo instável</li>
-</ul>
+      <ul>
+        <li>Alto bias → modelo rígido</li>
+        <li>Alta variância → modelo instável</li>
+      </ul>
 
-<p>Existe um trade-off entre esses dois fatores.</p>
+      <p>Existe um trade-off entre esses dois fatores.</p>
 
----
+      ---
 
-<h3>6º - Trade-off Bias vs Variance</h3>
+      <h3>6º - Trade-off Bias vs Variance</h3>
 
-<ul>
-<li>Reduzir bias tende a aumentar variância</li>
-<li>Reduzir variância tende a aumentar bias</li>
-</ul>
+      <ul>
+        <li>Reduzir bias tende a aumentar variância</li>
+        <li>Reduzir variância tende a aumentar bias</li>
+      </ul>
 
-<p>O objetivo é equilibrar os dois.</p>
+      <p>O objetivo é equilibrar os dois.</p>
 
----
+      ---
 
-<h3>7º - Implicação prática</h3>
+      <h3>7º - Implicação prática</h3>
 
-<p>Modelos eficazes são aqueles que:</p>
+      <p>Modelos eficazes são aqueles que:</p>
 
-<ul>
-<li>Não são simples demais</li>
-<li>Nem complexos demais</li>
-</ul>
+      <ul>
+        <li>Não são simples demais</li>
+        <li>Nem complexos demais</li>
+      </ul>
 
----
+      ---
 
-<h3>8º - Conclusão</h3>
+      <h3>8º - Conclusão</h3>
 
-<p>Bias e variância explicam por que modelos erram.</p>
+      <p>Bias e variância explicam por que modelos erram.</p>
 
-<p>Controlar esse equilíbrio é essencial para obter boa generalização.</p>
+      <p>Controlar esse equilíbrio é essencial para obter boa generalização.</p>
 
-  <site-footer
-    prev="topics/fundamentals/overfitting-underfitting.html"
-    next="topics/fundamentals/regularization.html">
-  </site-footer>
+      <site-footer
+        prev="topics/fundamentals/overfitting-underfitting.html"
+        next="topics/fundamentals/regularization.html">
+      </site-footer>
 
-</main>
+    </main>
 
-</body>
+  </body>
+
 </html>
 
